@@ -1,16 +1,21 @@
 {
-  "name": "playground",
+  "name": "@maksimr/ui",
   "version": "0.0.0",
   "main": "./src/index.js",
   "scripts": {
     "start": "webpack-dev-server -d --disable-host-check --history-api-fallback --host 0.0.0.0 --public $SANDBOX_URL",
     "build": "webpack -p",
     "test": "jest --passWithNoTests",
-    "lint": "eslint src/"
+    "lint": "eslint lib/ src/"
+  },
+  "dependencies": {
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
   },
   "devDependencies": {
     "@babel/core": "7.12.3",
     "@babel/preset-env": "7.12.1",
+    "@babel/preset-react": "7.12.1",
     "@babel/eslint-parser": "7.12.1",
     "babel-loader": "8.1.0",
     "css-loader": "5.0.0",
@@ -19,6 +24,7 @@
     "webpack-cli": "3.3.12",
     "webpack-dev-server": "3.11.0",
     "eslint": "7.11.0",
+    "eslint-plugin-react": "7.8.2",
     "jest": "26.6.0",
     "jest-cli": "26.6.0"
   },
@@ -29,15 +35,20 @@
       "ecmaVersion": 8,
       "sourceType": "module"
     },
+    "plugins": [
+      "react"
+    ],
     "env": {
       "browser": true,
       "node": true
     },
     "rules": {
-      "no-undef": "warn",
-      "no-unused-vars": "warn",
+      "react/jsx-uses-vars": 2,
+      "react/jsx-uses-react": 2,
+      "no-undef": "error",
+      "no-unused-vars": "error",
       "valid-jsdoc": [
-        "warn",
+        "error",
         {
           "requireReturn": false,
           "requireParamDescription": false,
