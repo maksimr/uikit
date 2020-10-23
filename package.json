@@ -5,6 +5,7 @@
   "scripts": {
     "start": "webpack-dev-server -d --disable-host-check --history-api-fallback --host 0.0.0.0 --public $SANDBOX_URL",
     "build": "webpack -p",
+    "build:type": "tsc --declaration --emitDeclarationOnly --outDir types --noEmit false",
     "test": "jest --passWithNoTests",
     "test:type": "tsc",
     "lint": "eslint lib/ src/"
