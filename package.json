@@ -1,6 +1,6 @@
 {
   "name": "@maksimr/ui",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "./src/index.js",
   "scripts": {
     "start": "webpack-dev-server -d --disable-host-check --history-api-fallback --host 0.0.0.0 --public $SANDBOX_URL",
