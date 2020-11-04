@@ -30,6 +30,7 @@ jobs:
       - name: Publish
         run: |
           npm ci
+          npm run build:type
           echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
           npm publish --access public
         env:
