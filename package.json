@@ -8,8 +8,9 @@
   ],
   "scripts": {
     "start": "webpack-dev-server -d --disable-host-check --history-api-fallback --host 0.0.0.0 --public $SANDBOX_URL",
-    "prepublish": "npm run build",
-    "build": "tsc --declaration --outDir dist --noEmit false",
+    "build": "webpack -p",
+    "build:pkg": "tsc --declaration --outDir dist --noEmit false",
+    "prepublish": "npm run build:pkg",
     "test": "jest --passWithNoTests",
     "test:type": "tsc",
     "lint": "eslint lib/ src/"
