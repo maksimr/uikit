@@ -2,7 +2,7 @@
  * @typedef {import('react').CSSProperties} CSSProperties
  * @typedef PopupBaseProps
  * @property {Array<PopupDirection> | PopupDirection} [direction]
- * @property {HTMLElement} anchorNode
+ * @property {HTMLElement} [anchorNode]
  * @property {HTMLElement} [parentNode]
  * @property {boolean} [resizable]
  * @property {JSX.Element} [children]
@@ -41,7 +41,7 @@ export namespace PopupDirection {
 export type CSSProperties = React.CSSProperties;
 export type PopupBaseProps = {
     direction?: Array<PopupDirection> | PopupDirection;
-    anchorNode: HTMLElement;
+    anchorNode?: HTMLElement;
     parentNode?: HTMLElement;
     resizable?: boolean;
     children?: JSX.Element;

@@ -56,7 +56,7 @@ const directions = [
  * @typedef {import('react').CSSProperties} CSSProperties
  * @typedef PopupBaseProps
  * @property {Array<PopupDirection> | PopupDirection} [direction]
- * @property {HTMLElement} anchorNode
+ * @property {HTMLElement} [anchorNode]
  * @property {HTMLElement} [parentNode]
  * @property {boolean} [resizable]
  * @property {JSX.Element} [children]
@@ -94,6 +94,9 @@ export function Popup(props) {
             setStyle(calcStyle(direction, anchorNode, popupNode, parentNode));
         }
     }, [anchorNode, parentNode, popupNode, direction, setStyle, resizable]);
+    if (!anchorNode) {
+        return null;
+    }
     return createPortal(React.createElement("div", Object.assign({ "data-role": 'popup', ref: setPopupNode, style: style }, restProps), children), parentNode);
 }
 /**
