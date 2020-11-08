@@ -9,7 +9,7 @@
   "scripts": {
     "start": "webpack-dev-server -d --disable-host-check --history-api-fallback --host 0.0.0.0 --public $SANDBOX_URL",
     "build": "webpack -p",
-    "bump": "npm version patch -m 'bump: version to %s' && git push && git tag v$(node -e 'console.log(require('./package.json').version)') && git push --tags",
+    "bump": "npm version patch -m 'bump: version to %s' && git push && git push --tags",
     "build:pkg": "tsc --project tsconfig.build.json --declaration --outDir dist --noEmit false",
     "prepublish": "npm run build:pkg",
     "test": "jest --passWithNoTests",
