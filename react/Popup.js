@@ -147,8 +147,8 @@ function calcStyle(direction, anchorNode, popupNode, parentNode) {
     const parentRect = parentNode.getBoundingClientRect();
     const popupRect = popupNode.getBoundingClientRect();
     const pos = Array.isArray(direction)
-        ? calcPositionForBestDirection(direction, anchorRect, popupRect, parentNode)
-        : calcPosition(direction, anchorRect, popupRect);
+        ? calcPositionForBestDirection(direction, anchorRect, popupRect, parentNode, parentRect)
+        : calcPosition(direction, anchorRect, popupRect, parentRect);
     pos.top = pos.top - parentRect.top;
     pos.left = pos.left - parentRect.left;
     return Object.assign({ position: 'absolute' }, pos);
@@ -158,9 +158,10 @@ function calcStyle(direction, anchorNode, popupNode, parentNode) {
  * @param {DOMRect} anchorRect
  * @param {DOMRect} popupRect
  * @param {HTMLElement} parentNode
+ * @param {DOMRect} parentRect
  * @returns {{top: number, left: number}|null}
  */
-function calcPositionForBestDirection(directions, anchorRect, popupRect, parentNode) {
+function calcPositionForBestDirection(directions, anchorRect, popupRect, parentNode, parentRect) {
     const scrollableNode = findScrollableElement(parentNode) || document.documentElement;
     let scrollableRect = scrollableNode.getBoundingClientRect();
     // getBoundingClientRect returns incorrect values for height and bottom of
@@ -183,7 +184,7 @@ function calcPositionForBestDirection(directions, anchorRect, popupRect, parentN
     }
     let pos = null;
     for (let i = 0; i < directions.length; i++) {
-        const dirPos = calcPosition(directions[i], anchorRect, popupRect);
+        const dirPos = calcPosition(directions[i], anchorRect, popupRect, parentRect);
         pos = pos || dirPos;
         if (dirPos.top > scrollableRect.top &&
             dirPos.top + popupRect.height < scrollableRect.bottom &&
@@ -198,47 +199,50 @@ function calcPositionForBestDirection(directions, anchorRect, popupRect, parentN
  * @param {PopupDirection} direction
  * @param {DOMRect} anchorRect
  * @param {DOMRect} popupRect
+ * @param {DOMRect} parentRect
  * @returns {{top: number, left: number}}
  */
-function calcPosition(direction, anchorRect, popupRect) {
+function calcPosition(direction, anchorRect, popupRect, parentRect) {
     let top;
     let left;
+    const parentTop = parentRect.top;
+    const parentLeft = parentRect.left;
     switch (true) {
         case checkDirection(direction, Direction.Bottom):
-            top = anchorRect.top + anchorRect.height;
+            top = anchorRect.top + anchorRect.height - parentTop;
             break;
         case checkDirection(direction, Direction.Top):
-            top = anchorRect.top - popupRect.height;
+            top = anchorRect.top - popupRect.height - parentTop;
             break;
         case checkDirection(direction, Direction.Left):
-            left = anchorRect.left - popupRect.width;
+            left = anchorRect.left - popupRect.width - parentLeft;
             break;
         case checkDirection(direction, Direction.Right):
-            left = anchorRect.left + anchorRect.width;
+            left = anchorRect.left + anchorRect.width - parentLeft;
             break;
         default:
             throw Error(`Invalid main direction value (${direction})`);
     }
     switch (true) {
         case checkDirection(direction, auxiliary(Direction.Right)):
-            left = anchorRect.left + anchorRect.width - popupRect.width;
+            left = anchorRect.left + anchorRect.width - popupRect.width - parentLeft;
             break;
         case checkDirection(direction, auxiliary(Direction.Left)):
-            left = anchorRect.left;
+            left = anchorRect.left - parentLeft;
             break;
         case checkDirection(direction, auxiliary(Direction.Bottom)):
-            top = anchorRect.top + anchorRect.height - popupRect.height;
+            top = anchorRect.top + anchorRect.height - popupRect.height - parentTop;
             break;
         case checkDirection(direction, auxiliary(Direction.Top)):
-            top = anchorRect.top;
+            top = anchorRect.top - parentTop;
             break;
         case checkDirection(direction, Direction.Center):
             if (checkDirection(direction, Direction.Top, Direction.Bottom)) {
-                left = anchorRect.left + anchorRect.width / 2 - popupRect.width / 2;
+                left = anchorRect.left + anchorRect.width / 2 - popupRect.width / 2 - parentLeft;
                 break;
             }
             else if (checkDirection(direction, Direction.Left, Direction.Right)) {
-                top = anchorRect.top + anchorRect.height / 2 - popupRect.height / 2;
+                top = anchorRect.top + anchorRect.height / 2 - popupRect.height / 2 - parentTop;
                 break;
             }
             break;
