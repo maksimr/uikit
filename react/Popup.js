@@ -59,6 +59,7 @@ const directions = [
  * @property {HTMLElement} [anchorNode]
  * @property {HTMLElement} [parentNode]
  * @property {boolean} [resizable]
+ * @property {CSSProperties} [style]
  * @property {JSX.Element} [children]
  * @typedef {PopupBaseProps & React.HTMLAttributes<HTMLElement>} PopupProps
  */
@@ -87,12 +88,12 @@ export function Popup(props) {
  */
 export function PopupPortal(props) {
     const popupConfig = useContext(PopupContext);
-    const { direction = directions, anchorNode, parentNode = (popupConfig === null || popupConfig === void 0 ? void 0 : popupConfig.parentNode) || (anchorNode === null || anchorNode === void 0 ? void 0 : anchorNode.parentNode), resizable = false, children } = props, restProps = __rest(props, ["direction", "anchorNode", "parentNode", "resizable", "children"]);
+    const { direction = directions, anchorNode, parentNode = (popupConfig === null || popupConfig === void 0 ? void 0 : popupConfig.parentNode) || (anchorNode === null || anchorNode === void 0 ? void 0 : anchorNode.parentNode), resizable = false, style, children } = props, restProps = __rest(props, ["direction", "anchorNode", "parentNode", "resizable", "style", "children"]);
     const [popupNode, setPopupNode] = useState(null);
     /**
      * @type [CSSProperties, any]
      */
-    const [style, setStyle] = useState({
+    const [positionStyle, setPositionStyle] = useState({
         position: 'absolute',
         visible: 'hidden'
     });
@@ -110,13 +111,14 @@ export function PopupPortal(props) {
             window.removeEventListener('resize', onResize);
         };
         function onResize() {
-            setStyle(calcStyle(direction, anchorNode, popupNode, parentNode));
+            setPositionStyle(calcStyle(direction, anchorNode, popupNode, parentNode));
         }
-    }, [anchorNode, parentNode, popupNode, direction, setStyle, resizable]);
+    }, [anchorNode, parentNode, popupNode, direction, setPositionStyle, resizable]);
     if (!anchorNode || !parentNode) {
         return null;
     }
-    return createPortal(React.createElement("div", Object.assign({ "data-role": 'popup', ref: setPopupNode, style: style }, restProps), children), parentNode);
+    const popupStyle = style ? Object.assign({ positionStyle }, style) : positionStyle;
+    return createPortal(React.createElement("div", Object.assign({ "data-role": 'popup', ref: setPopupNode, style: popupStyle }, restProps), children), parentNode);
 }
 /**
  * @typedef PopupProviderProps

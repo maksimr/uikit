@@ -5,6 +5,7 @@
  * @property {HTMLElement} [anchorNode]
  * @property {HTMLElement} [parentNode]
  * @property {boolean} [resizable]
+ * @property {CSSProperties} [style]
  * @property {JSX.Element} [children]
  * @typedef {PopupBaseProps & React.HTMLAttributes<HTMLElement>} PopupProps
  */
@@ -49,6 +50,7 @@ export type PopupBaseProps = {
     anchorNode?: HTMLElement;
     parentNode?: HTMLElement;
     resizable?: boolean;
+    style?: CSSProperties;
     children?: JSX.Element;
 };
 export type PopupProps = PopupBaseProps & React.HTMLAttributes<HTMLElement>;
