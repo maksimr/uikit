@@ -10,7 +10,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { createPortal } from 'react-dom';
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState, useRef } from 'react';
 import { addResizeListener } from '../resize-observer';
 import { findScrollableElement } from '../find-scrollable-element';
 const PopupContext = createContext(null);
@@ -64,9 +64,28 @@ const directions = [
  */
 /**
  * @param {PopupProps} props
- * @returns {React.ReactPortal}
+ * @returns {React.ReactPortal|JSX.Element}
  */
 export function Popup(props) {
+    const [autoAnchor, setAutoAnchor] = useState(null);
+    const autoAnchorDetector = useRef(null);
+    useEffect(() => {
+        if (props.anchorNode || autoAnchor) {
+            return;
+        }
+        if (autoAnchorDetector.current) {
+            setAutoAnchor(autoAnchorDetector.current.parentNode);
+        }
+    }, [autoAnchorDetector.current, setAutoAnchor, props.anchorNode]);
+    return props.anchorNode || autoAnchor ?
+        React.createElement(PopupPortal, Object.assign({ anchorNode: autoAnchor }, props)) :
+        React.createElement("span", { ref: autoAnchorDetector });
+}
+/**
+ * @param {PopupProps} props
+ * @returns {React.ReactPortal}
+ */
+export function PopupPortal(props) {
     const popupConfig = useContext(PopupContext);
     const { direction = directions, anchorNode, parentNode = (popupConfig === null || popupConfig === void 0 ? void 0 : popupConfig.parentNode) || (anchorNode === null || anchorNode === void 0 ? void 0 : anchorNode.parentNode), resizable = false, children } = props, restProps = __rest(props, ["direction", "anchorNode", "parentNode", "resizable", "children"]);
     const [popupNode, setPopupNode] = useState(null);
@@ -94,7 +113,7 @@ export function Popup(props) {
             setStyle(calcStyle(direction, anchorNode, popupNode, parentNode));
         }
     }, [anchorNode, parentNode, popupNode, direction, setStyle, resizable]);
-    if (!anchorNode) {
+    if (!anchorNode || !parentNode) {
         return null;
     }
     return createPortal(React.createElement("div", Object.assign({ "data-role": 'popup', ref: setPopupNode, style: style }, restProps), children), parentNode);

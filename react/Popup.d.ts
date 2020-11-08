@@ -10,9 +10,14 @@
  */
 /**
  * @param {PopupProps} props
+ * @returns {React.ReactPortal|JSX.Element}
+ */
+export function Popup(props: PopupProps): React.ReactPortal | JSX.Element;
+/**
+ * @param {PopupProps} props
  * @returns {React.ReactPortal}
  */
-export function Popup(props: PopupProps): React.ReactPortal;
+export function PopupPortal(props: PopupProps): React.ReactPortal;
 /**
  * @typedef PopupProviderProps
  * @property {{parentNode: HTMLElement}} value
