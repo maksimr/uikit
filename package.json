@@ -9,7 +9,7 @@
   "scripts": {
     "start": "webpack-dev-server -d --disable-host-check --history-api-fallback --host 0.0.0.0 --public $SANDBOX_URL",
     "build": "webpack -p",
-    "build:pkg": "tsc --declaration --outDir dist --noEmit false",
+    "build:pkg": "tsc --project tsconfig.build.json --declaration --outDir dist --noEmit false",
     "prepublish": "npm run build:pkg",
     "test": "jest --passWithNoTests",
     "test:type": "tsc",
