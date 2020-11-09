@@ -10,7 +10,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { createPortal } from 'react-dom';
-import React, { createContext, useContext, useEffect, useState, useRef } from 'react';
+import React, { createContext, useContext, useEffect, useState, useRef, useMemo } from 'react';
 import { addResizeListener } from '../resize-observer';
 import { findScrollableElement } from '../find-scrollable-element';
 const PopupContext = createContext(null);
@@ -86,10 +86,14 @@ export function Popup(props) {
  * @param {PopupProps} props
  * @returns {React.ReactPortal}
  */
-export function PopupPortal(props) {
+export function PopupPortal(_a) {
+    var { direction = directions, anchorNode, parentNode, resizable = false, style, children } = _a, restProps = __rest(_a, ["direction", "anchorNode", "parentNode", "resizable", "style", "children"]);
     const popupConfig = useContext(PopupContext);
-    const { direction = directions, anchorNode, parentNode = (popupConfig === null || popupConfig === void 0 ? void 0 : popupConfig.parentNode) || (anchorNode === null || anchorNode === void 0 ? void 0 : anchorNode.parentNode), resizable = false, style, children } = props, restProps = __rest(props, ["direction", "anchorNode", "parentNode", "resizable", "style", "children"]);
     const [popupNode, setPopupNode] = useState(null);
+    /**
+     * @type {HTMLElement}
+     */
+    const positionedNode = useMemo(() => parentNode || (popupConfig === null || popupConfig === void 0 ? void 0 : popupConfig.parentNode) || findPositionedElement(anchorNode === null || anchorNode === void 0 ? void 0 : anchorNode.parentNode) || document.body, [anchorNode, parentNode, popupConfig === null || popupConfig === void 0 ? void 0 : popupConfig.parentNode]);
     /**
      * @type [CSSProperties, any]
      */
@@ -111,14 +115,14 @@ export function PopupPortal(props) {
             window.removeEventListener('resize', onResize);
         };
         function onResize() {
-            setPositionStyle(calcStyle(direction, anchorNode, popupNode, parentNode));
+            setPositionStyle(calcStyle(direction, anchorNode, popupNode, positionedNode));
         }
-    }, [anchorNode, parentNode, popupNode, direction, setPositionStyle, resizable]);
-    if (!anchorNode || !parentNode) {
+    }, [anchorNode, positionedNode, popupNode, direction, setPositionStyle, resizable]);
+    if (!anchorNode || !positionedNode) {
         return null;
     }
     const popupStyle = style ? Object.assign({ positionStyle }, style) : positionStyle;
-    return createPortal(React.createElement("div", Object.assign({ "data-role": 'popup', ref: setPopupNode, style: popupStyle }, restProps), children), parentNode);
+    return createPortal(React.createElement("div", Object.assign({ "data-role": 'popup', ref: setPopupNode, style: popupStyle }, restProps), children), positionedNode);
 }
 /**
  * @typedef PopupProviderProps
@@ -147,8 +151,8 @@ function calcStyle(direction, anchorNode, popupNode, parentNode) {
     const parentRect = parentNode.getBoundingClientRect();
     const popupRect = popupNode.getBoundingClientRect();
     const pos = Array.isArray(direction)
-        ? calcPositionForBestDirection(direction, anchorRect, popupRect, parentNode, parentRect)
-        : calcPosition(direction, anchorRect, popupRect, parentRect);
+        ? calcPositionForBestDirection(direction, anchorRect, popupRect, parentNode)
+        : calcPosition(direction, anchorRect, popupRect);
     pos.top = pos.top - parentRect.top;
     pos.left = pos.left - parentRect.left;
     return Object.assign({ position: 'absolute' }, pos);
@@ -158,10 +162,9 @@ function calcStyle(direction, anchorNode, popupNode, parentNode) {
  * @param {DOMRect} anchorRect
  * @param {DOMRect} popupRect
  * @param {HTMLElement} parentNode
- * @param {DOMRect} parentRect
  * @returns {{top: number, left: number}|null}
  */
-function calcPositionForBestDirection(directions, anchorRect, popupRect, parentNode, parentRect) {
+function calcPositionForBestDirection(directions, anchorRect, popupRect, parentNode) {
     const scrollableNode = findScrollableElement(parentNode) || document.documentElement;
     let scrollableRect = scrollableNode.getBoundingClientRect();
     // getBoundingClientRect returns incorrect values for height and bottom of
@@ -179,12 +182,13 @@ function calcPositionForBestDirection(directions, anchorRect, popupRect, parentN
             y: scrollableNode.clientHeight,
             top: scrollableRect.top,
             bottom: scrollableNode.clientHeight - scrollableNode.scrollTop,
-            toJSON() { }
+            toJSON() {
+            }
         };
     }
     let pos = null;
     for (let i = 0; i < directions.length; i++) {
-        const dirPos = calcPosition(directions[i], anchorRect, popupRect, parentRect);
+        const dirPos = calcPosition(directions[i], anchorRect, popupRect);
         pos = pos || dirPos;
         if (dirPos.top > scrollableRect.top &&
             dirPos.top + popupRect.height < scrollableRect.bottom &&
@@ -199,50 +203,47 @@ function calcPositionForBestDirection(directions, anchorRect, popupRect, parentN
  * @param {PopupDirection} direction
  * @param {DOMRect} anchorRect
  * @param {DOMRect} popupRect
- * @param {DOMRect} parentRect
  * @returns {{top: number, left: number}}
  */
-function calcPosition(direction, anchorRect, popupRect, parentRect) {
+function calcPosition(direction, anchorRect, popupRect) {
     let top;
     let left;
-    const parentTop = parentRect.top;
-    const parentLeft = parentRect.left;
     switch (true) {
         case checkDirection(direction, Direction.Bottom):
-            top = anchorRect.top + anchorRect.height - parentTop;
+            top = anchorRect.top + anchorRect.height;
             break;
         case checkDirection(direction, Direction.Top):
-            top = anchorRect.top - popupRect.height - parentTop;
+            top = anchorRect.top - popupRect.height;
             break;
         case checkDirection(direction, Direction.Left):
-            left = anchorRect.left - popupRect.width - parentLeft;
+            left = anchorRect.left - popupRect.width;
             break;
         case checkDirection(direction, Direction.Right):
-            left = anchorRect.left + anchorRect.width - parentLeft;
+            left = anchorRect.left + anchorRect.width;
             break;
         default:
             throw Error(`Invalid main direction value (${direction})`);
     }
     switch (true) {
         case checkDirection(direction, auxiliary(Direction.Right)):
-            left = anchorRect.left + anchorRect.width - popupRect.width - parentLeft;
+            left = anchorRect.left + anchorRect.width - popupRect.width;
             break;
         case checkDirection(direction, auxiliary(Direction.Left)):
-            left = anchorRect.left - parentLeft;
+            left = anchorRect.left;
             break;
         case checkDirection(direction, auxiliary(Direction.Bottom)):
-            top = anchorRect.top + anchorRect.height - popupRect.height - parentTop;
+            top = anchorRect.top + anchorRect.height - popupRect.height;
             break;
         case checkDirection(direction, auxiliary(Direction.Top)):
-            top = anchorRect.top - parentTop;
+            top = anchorRect.top;
             break;
         case checkDirection(direction, Direction.Center):
             if (checkDirection(direction, Direction.Top, Direction.Bottom)) {
-                left = anchorRect.left + anchorRect.width / 2 - popupRect.width / 2 - parentLeft;
+                left = anchorRect.left + anchorRect.width / 2 - popupRect.width / 2;
                 break;
             }
             else if (checkDirection(direction, Direction.Left, Direction.Right)) {
-                top = anchorRect.top + anchorRect.height / 2 - popupRect.height / 2 - parentTop;
+                top = anchorRect.top + anchorRect.height / 2 - popupRect.height / 2;
                 break;
             }
             break;
@@ -260,4 +261,26 @@ function calcPosition(direction, anchorRect, popupRect, parentRect) {
  */
 function auxiliary(d) {
     return d << 4;
+}
+/**
+ * @param {any} element
+ * @return {HTMLElement|null}
+ */
+export function findPositionedElement(element) {
+    while (element) {
+        if (element.nodeType !== 1) {
+            return null;
+        }
+        const position = window.getComputedStyle(element).position;
+        if (position === 'static') {
+            /**
+             * @type {Element}
+             */
+            // @ts-ignore
+            element = element.parentNode;
+            continue;
+        }
+        break;
+    }
+    return element;
 }

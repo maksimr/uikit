@@ -18,7 +18,7 @@ export function Popup(props: PopupProps): React.ReactPortal | JSX.Element;
  * @param {PopupProps} props
  * @returns {React.ReactPortal}
  */
-export function PopupPortal(props: PopupProps): React.ReactPortal;
+export function PopupPortal({ direction, anchorNode, parentNode, resizable, style, children, ...restProps }: PopupProps): React.ReactPortal;
 /**
  * @typedef PopupProviderProps
  * @property {{parentNode: HTMLElement}} value
@@ -29,6 +29,11 @@ export function PopupPortal(props: PopupProps): React.ReactPortal;
  * @returns {JSX.Element}
  */
 export function PopupProvider({ value, children }: PopupProviderProps): JSX.Element;
+/**
+ * @param {any} element
+ * @return {HTMLElement|null}
+ */
+export function findPositionedElement(element: any): HTMLElement | null;
 export type PopupDirection = number;
 export namespace PopupDirection {
     const BOTTOM_LEFT: number;
