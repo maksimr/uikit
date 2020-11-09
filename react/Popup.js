@@ -99,7 +99,7 @@ export function PopupPortal(_a) {
      */
     const [positionStyle, setPositionStyle] = useState({
         position: 'absolute',
-        visible: 'hidden'
+        visibility: 'hidden'
     });
     useEffect(() => {
         if (!popupNode || !anchorNode) {
@@ -167,25 +167,6 @@ function calcStyle(direction, anchorNode, popupNode, parentNode) {
 function calcPositionForBestDirection(directions, anchorRect, popupRect, parentNode) {
     const scrollableNode = findScrollableElement(parentNode) || document.documentElement;
     let scrollableRect = scrollableNode.getBoundingClientRect();
-    // getBoundingClientRect returns incorrect values for height and bottom of
-    // html element
-    if (scrollableNode === document.documentElement) {
-        /**
-         * @type {DOMRect}
-         */
-        scrollableRect = {
-            x: scrollableRect.left,
-            left: scrollableRect.left,
-            right: scrollableRect.right,
-            width: scrollableRect.width,
-            height: scrollableNode.clientHeight,
-            y: scrollableNode.clientHeight,
-            top: scrollableRect.top,
-            bottom: scrollableNode.clientHeight - scrollableNode.scrollTop,
-            toJSON() {
-            }
-        };
-    }
     let pos = null;
     for (let i = 0; i < directions.length; i++) {
         const dirPos = calcPosition(directions[i], anchorRect, popupRect);
