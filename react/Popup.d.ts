@@ -30,16 +30,19 @@ export function PopupPortal({ direction, anchorNode, parentNode, resizable, styl
  */
 export function PopupProvider({ value, children }: PopupProviderProps): JSX.Element;
 export type PopupDirection = string;
-export namespace PopupDirection {
-    const BOTTOM_LEFT: string;
-    const BOTTOM_RIGHT: string;
-    const TOP_LEFT: string;
-    const TOP_RIGHT: string;
-    const LEFT_TOP: string;
-    const LEFT_BOTTOM: string;
-    const RIGHT_TOP: string;
-    const RIGHT_BOTTOM: string;
-}
+/**
+ * @enum {string}
+ */
+export const PopupDirection: {
+    BOTTOM_LEFT: string;
+    BOTTOM_RIGHT: string;
+    TOP_LEFT: string;
+    TOP_RIGHT: string;
+    LEFT_TOP: string;
+    LEFT_BOTTOM: string;
+    RIGHT_TOP: string;
+    RIGHT_BOTTOM: string;
+};
 export type CSSProperties = React.CSSProperties;
 export type PopupBaseProps = {
     direction?: PopupDirection;
