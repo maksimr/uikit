@@ -12,7 +12,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 import { createPortal } from 'react-dom';
 import React, { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { addResizeListener } from '../resize-observer';
-import { calcNodePosition, Direction } from "../calc-node-position";
+import { calculateTargetPositionRelativeToAnchor, Direction } from "../node-position";
 const PopupContext = createContext(null);
 /**
  * @enum {string}
@@ -111,5 +111,5 @@ export function PopupProvider({ value, children }) {
  */
 function calcStyle(direction, anchorNode, popupNode, parentNode) {
     return !popupNode ?
-        { position: 'absolute' } : Object.assign({ position: 'absolute' }, (calcNodePosition(popupNode, anchorNode, parentNode, direction)));
+        { position: 'absolute' } : Object.assign({ position: 'absolute' }, (calculateTargetPositionRelativeToAnchor(popupNode, anchorNode, parentNode, direction)));
 }

@@ -1,11 +1,19 @@
 /**
+ * @param {Element} node
+ * @returns {{top: number, left: number}}
+ */
+export function marginBox(node: Element): {
+    top: number;
+    left: number;
+};
+/**
  * @param {HTMLElement} targetNode
  * @param {HTMLElement} anchorNode
  * @param {Element} [positionedParentNode]
  * @param {string} [direction]
  * @returns {{top: number, left: number}}
  */
-export function calcNodePosition(targetNode: HTMLElement, anchorNode: HTMLElement, positionedParentNode?: Element, direction?: string): {
+export function calculateTargetPositionRelativeToAnchor(targetNode: HTMLElement, anchorNode: HTMLElement, positionedParentNode?: Element, direction?: string): {
     top: number;
     left: number;
 };

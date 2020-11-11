@@ -1,3 +1,4 @@
+import { marginBox } from "./node-position";
 const ELEMENT_STYLE_PROPERTIES = [
     'boxSizing',
     'width',
@@ -29,10 +30,10 @@ const ELEMENT_STYLE_PROPERTIES = [
 /**
 * @param {HTMLInputElement|HTMLTextAreaElement} element
 * @param {number} positionInText Caret in a text. You can use selectionStart or selectionEnd to get this position
-* @param {HTMLElement} [positionedParent]
-* @returns {{top: number, height: number, left: number, x: number, y:number}}
+* @param {Element} [positionedParent]
+* @returns {{offsetTop: number, height: number, offsetLeft: number, x: number, y:number}}
 */
-export function getCaretPosition(element, positionInText, positionedParent = document.body) {
+export function getCaretPosition(element, positionInText, positionedParent = element.offsetParent) {
     const computedStyle = window.getComputedStyle(element);
     const clone = document.createElement('div');
     clone.style.visibility = 'hidden';
@@ -43,11 +44,10 @@ export function getCaretPosition(element, positionInText, positionedParent = doc
     });
     const value = element.value;
     clone.textContent = value.substring(0, positionInText);
+    const { top: parentTop, left: parentLeft } = marginBox(positionedParent);
     const domRect = element.getBoundingClientRect();
-    const y = positionedParent.scrollTop;
-    const x = positionedParent.scrollLeft;
-    const top = domRect.top + y;
-    const left = domRect.left + x;
+    const top = domRect.top - parentTop;
+    const left = domRect.left - parentLeft;
     clone.style.top = top + 'px';
     clone.style.left = left + 'px';
     const cursor = document.createElement('span');
@@ -56,11 +56,11 @@ export function getCaretPosition(element, positionInText, positionedParent = doc
     clone.appendChild(cursor);
     positionedParent.appendChild(clone);
     const offset = {};
-    offset.top = cursor.offsetTop;
     offset.height = cursor.offsetHeight;
-    offset.left = cursor.offsetLeft;
-    offset.y = offset.top + top - element.scrollTop;
-    offset.x = offset.left + left - element.scrollLeft;
+    offset.offsetTop = cursor.offsetTop;
+    offset.offsetLeft = cursor.offsetLeft;
+    offset.y = cursor.offsetTop + top - element.scrollTop;
+    offset.x = cursor.offsetLeft + left - element.scrollLeft;
     positionedParent.removeChild(clone);
     return offset;
 }
