@@ -143,8 +143,13 @@ function positionNode(targetNode, anchorNode, positionedParentNode = anchorNode.
     const anchorRect = anchorNode.getBoundingClientRect();
     const targetRect = targetNode.getBoundingClientRect();
     const parentRect = positionedParentNode.getBoundingClientRect();
-    const relLeft = anchorRect.x - parentRect.x;
-    const relTop = anchorRect.y - parentRect.y;
+    const parentStyle = window.getComputedStyle(positionedParentNode);
+    const parentMarginTop = parseInt(parentStyle.marginTop);
+    const parentMarginLeft = parseInt(parentStyle.marginLeft);
+    const parentX = parentRect.x - parentMarginLeft;
+    const parentY = parentRect.y - parentMarginTop;
+    const relLeft = anchorRect.x - parentX;
+    const relTop = anchorRect.y - parentY;
     const Direction = {
         TOP: 't',
         BOTTOM: 'b',
@@ -195,8 +200,8 @@ function positionNode(targetNode, anchorNode, positionedParentNode = anchorNode.
         const scrollRect = scrolledNode.getBoundingClientRect();
         const height = scrolledNode.scrollHeight || scrollRect.height;
         const width = scrolledNode.scrollWidth || scrollRect.width;
-        const dx = parentRect.x - scrollRect.x;
-        const dy = parentRect.y - scrollRect.y;
+        const dx = parentX - scrollRect.x;
+        const dy = parentY - scrollRect.y;
         if (dirPosition.top + dy < 0 ||
             dirPosition.top + dy + targetRect.height > height ||
             dirPosition.left + dx < 0 ||
