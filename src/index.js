@@ -4,7 +4,6 @@ import { Popup } from '../lib/react/Popup';
 
 function main() {
   const rootNode = document.getElementById('app');
-  rootNode.style.position = 'relative';
 
   render(<App/>, rootNode);
 
@@ -24,7 +23,7 @@ function main() {
           Popup
         </button>
         {anchorNode ? (
-          <Popup anchorNode={anchorNode} resizable={true} parentNode={rootNode}>
+          <Popup anchorNode={anchorNode} resizable={true}>
             <div>
               Hello World!
               <div>{img ? <img alt="pic" src={img}/> : null}</div>
