@@ -20,10 +20,7 @@ function main() {
 
     return (
       <div>
-        <button
-          style={{position: 'fixed', bottom: 0}}
-          ref={(node) => setAnchorNode(node)}
-        >
+        <button ref={(node) => setAnchorNode(node)}>
           Popup
         </button>
         {anchorNode ? (
