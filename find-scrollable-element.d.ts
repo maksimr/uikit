@@ -1,5 +1,5 @@
 /**
- * @param {HTMLElement} element
- * @return {HTMLElement|null}
+ * @param {Element} element
+ * @return {Element|null}
  */
-export function findScrollableElement(element: HTMLElement): HTMLElement | null;
+export function findScrollableElement(element: Element): Element | null;

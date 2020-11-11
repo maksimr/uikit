@@ -1,6 +1,6 @@
 /**
- * @param {HTMLElement} element
- * @return {HTMLElement|null}
+ * @param {Element} element
+ * @return {Element|null}
  */
 export function findScrollableElement(element) {
     while (element) {

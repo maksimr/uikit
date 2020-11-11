@@ -1,7 +1,7 @@
 /**
  * @typedef {import('react').CSSProperties} CSSProperties
  * @typedef PopupBaseProps
- * @property {Array<PopupDirection> | PopupDirection} [direction]
+ * @property {PopupDirection} [direction]
  * @property {HTMLElement} [anchorNode]
  * @property {HTMLElement} [parentNode]
  * @property {boolean} [resizable]
@@ -29,29 +29,20 @@ export function PopupPortal({ direction, anchorNode, parentNode, resizable, styl
  * @returns {JSX.Element}
  */
 export function PopupProvider({ value, children }: PopupProviderProps): JSX.Element;
-/**
- * @param {any} element
- * @return {HTMLElement|null}
- */
-export function findPositionedElement(element: any): HTMLElement | null;
-export type PopupDirection = number;
+export type PopupDirection = string;
 export namespace PopupDirection {
-    const BOTTOM_LEFT: number;
-    const BOTTOM_RIGHT: number;
-    const BOTTOM_CENTER: number;
-    const TOP_LEFT: number;
-    const TOP_RIGHT: number;
-    const TOP_CENTER: number;
-    const LEFT_TOP: number;
-    const LEFT_BOTTOM: number;
-    const LEFT_CENTER: number;
-    const RIGHT_TOP: number;
-    const RIGHT_BOTTOM: number;
-    const RIGHT_CENTER: number;
+    const BOTTOM_LEFT: string;
+    const BOTTOM_RIGHT: string;
+    const TOP_LEFT: string;
+    const TOP_RIGHT: string;
+    const LEFT_TOP: string;
+    const LEFT_BOTTOM: string;
+    const RIGHT_TOP: string;
+    const RIGHT_BOTTOM: string;
 }
 export type CSSProperties = React.CSSProperties;
 export type PopupBaseProps = {
-    direction?: Array<PopupDirection> | PopupDirection;
+    direction?: PopupDirection;
     anchorNode?: HTMLElement;
     parentNode?: HTMLElement;
     resizable?: boolean;
