@@ -34,12 +34,12 @@ export function calcNodePosition(targetNode, anchorNode, positionedParentNode = 
     const targetRect = targetNode.getBoundingClientRect();
     const parentRect = positionedParentNode.getBoundingClientRect();
     const parentStyle = window.getComputedStyle(positionedParentNode);
-    const parentMarginTop = parseInt(parentStyle.marginTop);
-    const parentMarginLeft = parseInt(parentStyle.marginLeft);
-    const parentX = parentRect.x - parentMarginLeft;
-    const parentY = parentRect.y - parentMarginTop;
-    const relLeft = anchorRect.x - parentX;
-    const relTop = anchorRect.y - parentY;
+    const parentMarginTop = parseStylePropToInt(parentStyle.marginTop);
+    const parentMarginLeft = parseStylePropToInt(parentStyle.marginLeft);
+    const parentX = (parentRect.x || 0) - parentMarginLeft;
+    const parentY = (parentRect.y || 0) - parentMarginTop;
+    const relLeft = (anchorRect.x || 0) - parentX;
+    const relTop = (anchorRect.y || 0) - parentY;
     const Direction = {
         TOP: 't',
         BOTTOM: 'b',
@@ -103,4 +103,8 @@ export function calcNodePosition(targetNode, anchorNode, positionedParentNode = 
         break;
     }
     return targetPosition;
+}
+function parseStylePropToInt(prop) {
+    const value = prop && prop !== 'auto' ? parseInt(prop, 10) : 0;
+    return isNaN(value) ? 0 : value;
 }
