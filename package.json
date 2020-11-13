@@ -65,6 +65,7 @@
       "react/jsx-uses-vars": 2,
       "react/jsx-uses-react": 2,
       "no-undef": "error",
+      "semi": "error",
       "no-unused-vars": "error",
       "valid-jsdoc": [
         "error",
