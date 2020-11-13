@@ -30,10 +30,18 @@ const ELEMENT_STYLE_PROPERTIES = [
     'whiteSpace'
 ];
 /**
+ * @typedef CaretPosition
+ * @property {number} offsetTop position relative to the element
+ * @property {number} offsetLeft position relative to the element
+ * @property {number} height height of the caret
+ * @property {number} x position relative to the positioned parent
+ * @property {number} y position relative to the positioned parent
+ */
+/**
  * @param {HTMLInputElement|HTMLTextAreaElement} element
  * @param {number} positionInText Caret in a text. You can use selectionStart or selectionEnd to get this position
  * @param {Element} [positionedParent]
- * @returns {{offsetTop: number, height: number, offsetLeft: number, x: number, y:number}}
+ * @returns {CaretPosition}
  */
 export function getCaretPosition(element, positionInText, positionedParent = element.offsetParent) {
     var _a;
