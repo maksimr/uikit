@@ -1,4 +1,14 @@
 /**
+ * @param {string} dateStr
+ * @param {string} format
+ * @param {{previousDate: Date?, dateTimeLocale: object?}} [options]
+ * @returns {Date|null}
+ */
+export function parse(dateStr: string, format: string, options?: {
+    previousDate: Date | null;
+    dateTimeLocale: object | null;
+}): Date | null;
+/**
  * @param {Date|number} date
  * @param {string|function} [format]
  * @param {string} [timezone]
