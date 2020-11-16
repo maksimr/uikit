@@ -6,10 +6,16 @@ import { useState, useEffect, useRef, useCallback } from "react";
  */
 export function useStateWithCallback(initialState) {
     const [state, setState] = useState(initialState);
+    const [flipFlop, setFlipFlop] = useState(true);
     const queue = useRef([]);
     const setStateWithCallback = useCallback((newState, callback) => {
         setState(newState);
-        queue.current.push(callback);
+        if (callback) {
+            queue.current.push(callback);
+        }
+        if (queue.current.length === 1) {
+            setFlipFlop(!flipFlop);
+        }
     }, [setState, queue]);
     useEffect(() => {
         const currentQueue = queue.current;
@@ -18,6 +24,6 @@ export function useStateWithCallback(initialState) {
                 currentQueue.shift()();
             }
         }
-    }, [state]);
+    }, [flipFlop]);
     return [state, setStateWithCallback];
 }
