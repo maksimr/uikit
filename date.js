@@ -102,9 +102,15 @@ const DATE_FORMATS = {
     GGGG: longEraGetter
 };
 /**
+ * @typedef DateParseOptions
+ * @property {Date} [previousDate]
+ * @property {string} [timezone] Parse date string in the specific timezone to the date in local timezone
+ * @property {object} [dateTimeLocale]
+ */
+/**
  * @param {string} dateStr
  * @param {string} format
- * @param {{previousDate: Date?, dateTimeLocale: object?}} [options]
+ * @param {DateParseOptions} [options]
  * @returns {Date|null}
  */
 export function parse(dateStr, format, options) {
@@ -135,7 +141,9 @@ export function parse(dateStr, format, options) {
         hh: [/\d{1,2}/, 'HH'],
         h: [/\d{1,2}/, 'HH'],
         mm: [/\d{1,2}/, 'mm'],
-        m: [/\d{1,2}/, 'mm']
+        m: [/\d{1,2}/, 'mm'],
+        ss: [/\d{1,2}/, 'ss'],
+        sss: [/\d{1,3}/, 'sss']
     };
     const dateParts = {
         yyyy: previousDate.getFullYear(),
@@ -186,7 +194,9 @@ export function parse(dateStr, format, options) {
         // Use `setFullYear()` to set the correct year.
         date.setFullYear(dateParts.yyyy);
     }
-    return date;
+    return ((options === null || options === void 0 ? void 0 : options.timezone) ?
+        convertTimezoneToLocal(date, options.timezone) :
+        date);
 }
 /**
  * @param {Date|number} date

@@ -1,13 +1,16 @@
 /**
+ * @typedef DateParseOptions
+ * @property {Date} [previousDate]
+ * @property {string} [timezone] Parse date string in the specific timezone to the date in local timezone
+ * @property {object} [dateTimeLocale]
+ */
+/**
  * @param {string} dateStr
  * @param {string} format
- * @param {{previousDate: Date?, dateTimeLocale: object?}} [options]
+ * @param {DateParseOptions} [options]
  * @returns {Date|null}
  */
-export function parse(dateStr: string, format: string, options?: {
-    previousDate: Date | null;
-    dateTimeLocale: object | null;
-}): Date | null;
+export function parse(dateStr: string, format: string, options?: DateParseOptions): Date | null;
 /**
  * @param {Date|number} date
  * @param {string|function} [format]
@@ -43,3 +46,11 @@ export namespace dateTimeLocale {
     const shortDate: string;
     const shortTime: string;
 }
+export type DateParseOptions = {
+    previousDate?: Date;
+    /**
+     * Parse date string in the specific timezone to the date in local timezone
+     */
+    timezone?: string;
+    dateTimeLocale?: object;
+};
