@@ -16,6 +16,13 @@ export function parse(dateStr: string, format: string, options?: {
  * @returns {string|number|Date|*}
  */
 export function dateFilter(date: Date | number, format?: string | Function, timezone?: string, locale?: object): string | number | Date | any;
+/**
+ * @param {Date} date
+ * @param {string} timezone
+ * @param {boolean=} reverse
+ * @returns {Date}
+ */
+export function convertTimezoneToLocal(date: Date, timezone: string, reverse?: boolean | undefined): Date;
 export namespace dateTimeLocale {
     const ERANAMES: string[];
     const ERAS: string[];
