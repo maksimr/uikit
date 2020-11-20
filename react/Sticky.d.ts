@@ -12,11 +12,12 @@
  * @returns {JSX.Element}
  */
 export function Sticky({ children, onSticky, style, throttleDuration, ...props }: StickyProps): JSX.Element;
-export type CSSProperties = import("react").CSSProperties;
+export type CSSProperties = React.CSSProperties;
 export type StickyProps = {
     onSticky?: Function;
     style?: CSSProperties;
     throttleDuration?: number;
     children?: JSX.Element | string;
 };
-export type PopupProps = StickyProps & import("react").HTMLAttributes<HTMLElement>;
+export type PopupProps = StickyProps & React.HTMLAttributes<HTMLElement>;
+import React = require("react");
