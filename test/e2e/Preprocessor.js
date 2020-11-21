@@ -8,7 +8,7 @@ module.exports = {
       const relativePath = path.relative(basePath, file.path);
       const output = require('path').join(tmpdir, relativePath);
       const wc = Object.assign({ mode: 'development', devtool: 'eval-source-map' }, config, {
-        entry: file.contentPath,
+        entry: file.path,
         output: {
           path: path.dirname(output),
           filename: path.basename(output)
