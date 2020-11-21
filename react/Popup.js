@@ -26,7 +26,7 @@ export const PopupDirection = Direction;
  * @property {HTMLElement} [parentNode]
  * @property {boolean} [resizable]
  * @property {CSSProperties} [style]
- * @property {JSX.Element} [children]
+ * @property {JSX.Element|string} [children]
  * @typedef {PopupBaseProps & React.HTMLAttributes<HTMLElement>} PopupProps
  */
 /**
