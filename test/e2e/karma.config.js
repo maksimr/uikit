@@ -17,7 +17,7 @@ module.exports = function(config) {
     customLaunchers: {
       Puppeteer_no_hinting: {
         base: 'Puppeteer',
-        flags: ['--font-render-hinting=none']
+        flags: ['--font-render-hinting=none', '--no-sandbox']
       }
     },
     reporters: ['progress', 'outdated-snapshot'],
