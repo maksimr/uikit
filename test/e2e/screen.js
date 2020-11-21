@@ -1,5 +1,12 @@
 import { render, unmountComponentAtNode } from 'react-dom';
 
+beforeAll(function() {
+  document.body.style.padding = '0';
+  document.body.style.margin = '0';
+  document.body.style.width = '100vw';
+  document.body.style.height = '100vh';
+});
+
 let rootNode = null;
 beforeEach(function() {
   rootNode = document.createElement('div');
