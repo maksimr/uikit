@@ -14,9 +14,15 @@ module.exports = function(config) {
       preprocessors[file] = ['webpack'];
       return preprocessors;
     }, {}),
+    customLaunchers: {
+      Puppeteer_no_hinting: {
+        base: 'Puppeteer',
+        flags: ['--font-render-hinting=none']
+      }
+    },
     reporters: ['progress', 'outdated-snapshot'],
     autoWatch: true,
-    browsers: ['Puppeteer'],
+    browsers: ['Puppeteer_no_hinting'],
     singleRun: true
   });
 };
