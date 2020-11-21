@@ -19,3 +19,8 @@ jobs:
           npm run test:type
           npm test
           npm run test:e2e
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: diff_output
+          path: test/e2e/__image_snapshots__/__diff_output__
