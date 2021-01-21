@@ -31,6 +31,7 @@ jobs:
         run: |
           npm ci
           echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
+          npm run build:pkg
           npm publish --access public
         env:
           NPM_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
