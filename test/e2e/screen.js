@@ -24,10 +24,9 @@ afterEach(function() {
 });
 
 /**
- * @param {JSX.Element|string} element
- * @param {function} [callback]
- * @returns {Element}
+ * @param {JSX.Element} element
+ * @returns {void}
  */
-export function screen(element, callback) {
-  return render(element, rootNode, callback);
+export function screen(element) {
+  return render(element, rootNode);
 }
