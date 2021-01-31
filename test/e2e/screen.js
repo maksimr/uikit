@@ -7,7 +7,8 @@ beforeAll(function() {
   document.body.style.height = '100vh';
 });
 
-let rootNode = null;
+/**@type {HTMLElement|null}*/
+let rootNode;
 beforeEach(function() {
   rootNode = document.createElement('div');
   rootNode.setAttribute('id', 'app');
@@ -17,7 +18,7 @@ beforeEach(function() {
 afterEach(function() {
   if (rootNode) {
     unmountComponentAtNode(rootNode);
-    rootNode.parentNode.removeChild(rootNode);
+    rootNode?.parentNode?.removeChild(rootNode);
     rootNode = null;
   }
 });
