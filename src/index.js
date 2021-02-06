@@ -1,38 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { render } from 'react-dom';
-import { Popup } from '../lib/react/Popup';
+import React from 'react';
+import { render } from "react-dom";
 
 function main() {
   const rootNode = document.getElementById('app');
-
-  render(<App/>, rootNode);
-
-  function App() {
-    const [anchorNode, setAnchorNode] = useState(null);
-    const [img, setImg] = useState(null);
-    useEffect(() => {
-      const id = setTimeout(() => {
-        setImg('https://picsum.photos/100/100?grayscale');
-      }, 1000);
-      return () => clearTimeout(id);
-    }, [setImg]);
-
-    return (
-      <div>
-        <button ref={(node) => setAnchorNode(node)}>
-          Popup
-        </button>
-        {anchorNode ? (
-          <Popup anchorNode={anchorNode} resizable={true}>
-            <div>
-              Hello World!
-              <div>{img ? <img alt="pic" src={img}/> : null}</div>
-            </div>
-          </Popup>
-        ) : null}
-      </div>
-    );
-  }
+  render(<div>Hello World!</div>, rootNode);
 }
 
 main();
