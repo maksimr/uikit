@@ -73,15 +73,7 @@
       "react/jsx-uses-react": 2,
       "no-undef": "error",
       "semi": "error",
-      "no-unused-vars": "error",
-      "valid-jsdoc": [
-        "error",
-        {
-          "requireReturn": false,
-          "requireParamDescription": false,
-          "requireReturnDescription": false
-        }
-      ]
+      "no-unused-vars": "error"
     }
   }
 }
