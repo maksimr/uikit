@@ -1,4 +1,5 @@
 module.exports = function(config) {
+  const snapshotDir = require('path').resolve(__dirname, '__image_snapshots__');
   const files = [
     { pattern: 'lib/**/*.e2e.js', watched: false }
   ];
@@ -19,7 +20,7 @@ module.exports = function(config) {
     }, {}),
     webpack: require('../../webpack.config.js')(),
     snapshot: {
-      customSnapshotsDir: require('path').resolve(__dirname, '__image_snapshots__')
+      customSnapshotsDir: snapshotDir
     },
     customLaunchers: {
       Puppeteer_no_hinting: {
