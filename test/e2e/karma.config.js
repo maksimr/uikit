@@ -10,9 +10,7 @@ module.exports = function(config) {
     files: files,
     plugins: [
       'karma-*',
-      require('./image-snapshot/puppeteer-launcher'),
-      require('./image-snapshot/snapshot-framework'),
-      require('./image-snapshot/oudated-snapshot-reporter')
+      require('./karma-image-snapshot/index')
     ],
     preprocessors: files.reduce((preprocessors, file) => {
       preprocessors[file.pattern || file] = ['webpack'];
