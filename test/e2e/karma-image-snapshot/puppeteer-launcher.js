@@ -3,7 +3,7 @@ const markTouchedFile = require('./oudated-snapshot-reporter').markTouchedFile;
 
 module.exports = {
   // eslint-disable-next-line no-unused-vars
-  'launcher:Puppeteer': ['type', function(/* baseBrowserDecorator */ baseBrowserDecorator, /* args */ args, /*config.snapshot*/compareOptions) {
+  'launcher:SnapshotPuppeteer': ['type', function(/* baseBrowserDecorator */ baseBrowserDecorator, /* args */ args, /*config.snapshot*/compareOptions) {
     const compare = createCompareFn(compareOptions || {});
     const ChromeHeadless = require('karma-chrome-launcher')['launcher:ChromeHeadless'][1];
     ChromeHeadless.apply(this, arguments);
