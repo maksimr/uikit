@@ -1,5 +1,5 @@
 const { compare } = require('./snapshot-compare');
-const markTouchedFile = require('./OudatedSnapshotReporter').markTouchedFile;
+const markTouchedFile = require('./oudated-snapshot-reporter').markTouchedFile;
 
 module.exports = {
   // eslint-disable-next-line no-unused-vars
