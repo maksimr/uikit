@@ -1,6 +1,6 @@
 module.exports = function(config) {
   const files = [
-    { pattern: './test/e2e/snapshot.js', watched: false },
+    { pattern: './test/e2e/image-snapshot/snapshot.js', watched: false },
     { pattern: 'lib/**/*.e2e.js', watched: false }
   ];
 
@@ -10,8 +10,8 @@ module.exports = function(config) {
     files: files,
     plugins: [
       'karma-*',
-      require('./puppeteer-launcher'),
-      require('./oudated-snapshot-reporter')
+      require('./image-snapshot/puppeteer-launcher'),
+      require('./image-snapshot/oudated-snapshot-reporter')
     ],
     preprocessors: files.reduce((preprocessors, file) => {
       preprocessors[file.pattern || file] = ['webpack'];

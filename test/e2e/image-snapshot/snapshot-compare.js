@@ -1,7 +1,7 @@
 const path = require('path');
 const { diffImageToSnapshot, runDiffImageToSnapshot } = require('jest-image-snapshot/src/diff-snapshot');
 const updateSnapshotDefault = process.argv.find((arg) => /^\s*(--updateSnapshot|-u)\s*$/.test(arg));
-const SNAPSHOTS_DIR = '__image_snapshots__';
+const SNAPSHOTS_DIR = '../__image_snapshots__';
 
 module.exports.compare = function compare(actual, {
   currentSpec,
