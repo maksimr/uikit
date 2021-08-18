@@ -1,19 +1,23 @@
 module.exports = function(config) {
-  const files = ['./test/e2e/snapshot.js', 'lib/**/*.e2e.js'];
+  const files = [
+    { pattern: './test/e2e/snapshot.js', watched: false },
+    { pattern: 'lib/**/*.e2e.js', watched: false }
+  ];
+
   config.set({
     basePath: '../../',
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'webpack'],
     files: files,
     plugins: [
       'karma-*',
       require('./Puppeteer'),
-      require('./OudatedSnapshotReporter'),
-      require('./Preprocessor')
+      require('./OudatedSnapshotReporter')
     ],
     preprocessors: files.reduce((preprocessors, file) => {
-      preprocessors[file] = ['webpack'];
+      preprocessors[file.pattern || file] = ['webpack'];
       return preprocessors;
     }, {}),
+    webpack: require('../../webpack.config.js')(),
     customLaunchers: {
       Puppeteer_no_hinting: {
         base: 'Puppeteer',
