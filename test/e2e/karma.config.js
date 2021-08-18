@@ -18,6 +18,9 @@ module.exports = function(config) {
       return preprocessors;
     }, {}),
     webpack: require('../../webpack.config.js')(),
+    snapshot: {
+      customSnapshotsDir: require('path').resolve(__dirname, '__image_snapshots__')
+    },
     customLaunchers: {
       Puppeteer_no_hinting: {
         base: 'Puppeteer',

@@ -1,12 +1,14 @@
 const path = require('path');
 const { diffImageToSnapshot, runDiffImageToSnapshot } = require('jest-image-snapshot/src/diff-snapshot');
 const updateSnapshotDefault = process.argv.find((arg) => /^\s*(--updateSnapshot|-u)\s*$/.test(arg));
-const SNAPSHOTS_DIR = '../__image_snapshots__';
+const SNAPSHOTS_DIR = '__image_snapshots__';
 
-module.exports.compare = function compare(actual, {
+module.exports.createCompareFn = (defaultOptions = {}) => (actula, options = {}) => compare(actula, { ...defaultOptions, ...options });
+
+function compare(actual, {
   currentSpec,
   customDiffConfig = {},
-  customSnapshotsDir,
+  customSnapshotsDir = path.join(path.dirname(__filename), SNAPSHOTS_DIR),
   customDiffDir,
   diffDirection = 'horizontal',
   failureThreshold = 0,
@@ -19,9 +21,8 @@ module.exports.compare = function compare(actual, {
   comparisonMethod = 'pixelmatch',
   markTouchedFile
 } = {}) {
-  const testPath = __filename;
   const snapshotIdentifier = currentSpec.fullName.replace(/\s+/g, '_');
-  const snapshotsDir = customSnapshotsDir || path.join(path.dirname(testPath), SNAPSHOTS_DIR);
+  const snapshotsDir = customSnapshotsDir;
   const diffDir = customDiffDir || path.join(snapshotsDir, '__diff_output__');
   const imageToSnapshot = runInProcess ? diffImageToSnapshot : runDiffImageToSnapshot;
   const baselineSnapshotPath = path.join(snapshotsDir, `${snapshotIdentifier}-snap.png`);
