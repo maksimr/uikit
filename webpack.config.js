@@ -33,5 +33,8 @@ module.exports = () => ({
     new (require('html-webpack-plugin'))({
       template: require.resolve('./index.html')
     })
-  ]
+  ],
+  devServer: {
+    allowedHosts: 'all'
+  }
 });
