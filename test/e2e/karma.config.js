@@ -10,7 +10,7 @@ module.exports = function(config) {
     files: files,
     plugins: [
       'karma-*',
-      require('./karma-image-snapshot/index')
+      require('@maksimr/karma-image-snapshot')
     ],
     preprocessors: files.reduce((preprocessors, file) => {
       preprocessors[file.pattern || file] = ['webpack'];
