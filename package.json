@@ -1,6 +1,6 @@
 {
   "name": "@maksimr/ui",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "scripts": {
     "start": "webpack serve --mode development --history-api-fallback --host 0.0.0.0 --client-web-socket-url auto://0.0.0.0:0/ws",
     "build": "webpack --mode production",
