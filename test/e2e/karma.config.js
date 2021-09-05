@@ -8,10 +8,6 @@ module.exports = function(config) {
     basePath: '../../',
     frameworks: ['snapshot-jasmine', 'jasmine', 'webpack'],
     files: files,
-    plugins: [
-      'karma-*',
-      require('@maksimr/karma-image-snapshot')
-    ],
     preprocessors: files.reduce((preprocessors, file) => {
       preprocessors[file.pattern || file] = ['webpack'];
       return preprocessors;
