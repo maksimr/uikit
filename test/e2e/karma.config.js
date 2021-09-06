@@ -18,7 +18,7 @@ module.exports = function(config) {
     },
     customLaunchers: {
       Puppeteer_no_hinting: {
-        base: 'SnapshotPuppeteer',
+        base: 'SnapshotBrowser',
         flags: ['--font-render-hinting=none', '--no-sandbox']
       }
     },
