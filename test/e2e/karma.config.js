@@ -14,6 +14,9 @@ module.exports = function(config) {
     }, {}),
     webpack: require('../../webpack.config.js')(),
     snapshot: {
+      driver: process.env.BROWSER ?
+        require('playwright')[process.env.BROWSER] :
+        require('puppeteer'),
       customSnapshotsDir: snapshotDir
     },
     customLaunchers: {
