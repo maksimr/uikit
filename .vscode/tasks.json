@@ -1,12 +1,19 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"type": "shell",
-			"command": "npm run test -- --watch",
-			"group": "test",
-			"label": "npm: test:watch",
-			"detail": "jest --passWithNoTests --watch"
-		}
-	]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "command": "npm run test -- --watch",
+      "group": "test",
+      "label": "npm: test:watch",
+      "detail": "jest --passWithNoTests --watch"
+    },
+    {
+      "type": "shell",
+      "command": "npm run test:e2e",
+      "group": "test",
+      "label": "npm: test:e2e",
+      "detail": "npm run test:e2e"
+    }
+  ]
 }
