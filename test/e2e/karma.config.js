@@ -14,20 +14,22 @@ module.exports = function(config) {
     }, {}),
     webpack: require('../../webpack.config.js')(),
     snapshot: {
-      driver: process.env.BROWSER ?
-        require('playwright')[process.env.BROWSER] :
-        require('puppeteer'),
       customSnapshotsDir: snapshotDir
     },
     customLaunchers: {
-      Puppeteer_no_hinting: {
-        base: 'SnapshotBrowser',
+      Chrome: {
+        base: 'SnapshotHeadlessLauncher',
+        flags: ['--font-render-hinting=none', '--no-sandbox']
+      },
+      Firefox: {
+        base: 'SnapshotHeadlessLauncher',
+        driver: require('playwright').firefox,
         flags: ['--font-render-hinting=none', '--no-sandbox']
       }
     },
     reporters: ['progress', 'outdated-snapshot'],
     autoWatch: true,
-    browsers: ['Puppeteer_no_hinting'],
+    browsers: ['Chrome'],
     singleRun: true
   });
 };
