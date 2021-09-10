@@ -1,5 +1,5 @@
 {
-  "name": "@maksimr/ui",
+  "name": "@maksimr/uikit",
   "version": "0.0.36",
   "engines": {
     "node": ">= 14"
