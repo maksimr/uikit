@@ -13,11 +13,18 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "${{ steps.node.outputs.version }}"
-      - name: Run tests
+      - name: Install dependencies
         run: |
           npm ci
+      - name: Run static tests
+        run: |
           npm run test:type
-          npm test
+          npm run test:cpd
+      - name: Run unit tests
+        run: |
+          npm run test
+      - name: Run visual regression tests
+        run: |
           npm run test:e2e -- --browsers=Chrome
           npm run test:e2e -- --browsers=Firefox
       - uses: actions/upload-artifact@v2
