@@ -18,7 +18,8 @@ jobs:
           npm ci
           npm run test:type
           npm test
-          npm run test:e2e -- --browsers=Chrome,Firefox
+          npm run test:e2e -- --browsers=Chrome
+          npm run test:e2e -- --browsers=Firefox
       - uses: actions/upload-artifact@v2
         if: failure()
         with:
