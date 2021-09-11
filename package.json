@@ -5,11 +5,13 @@
   "engines": {
     "node": ">= 14"
   },
+  "types": "index.d.ts",
   "scripts": {
     "start": "webpack serve --mode development --history-api-fallback --host 0.0.0.0 --client-web-socket-url auto://0.0.0.0:0/ws",
     "build": "webpack --mode production",
+    "build:types-bundle": "node ./scripts/bundle-types.js dist",
     "build:pkg": "tsc --project tsconfig.build.json --declaration --outDir dist --noEmit false",
-    "postbuild:pkg": "cp package.json dist/package.json",
+    "postbuild:pkg": "npm run build:types-bundle && cp package.json dist/package.json",
     "preprelease": "npm run build:pkg",
     "release": "npm version patch -m 'bump: version to %s'",
     "postrelease": "git push && git push --tags",
@@ -67,6 +69,7 @@
     ],
     "env": {
       "browser": true,
+      "es6": true,
       "node": true
     },
     "globals": {
@@ -83,6 +86,7 @@
     "rules": {
       "react/jsx-uses-vars": 2,
       "react/jsx-uses-react": 2,
+      "no-console": "error",
       "quotes": [
         "error",
         "single"
