@@ -1,6 +1,11 @@
+/**
+ * Bundle provided d.ts files into one bundle
+ * to support auto-import in VSCode and 
+ * other VSCode like editors
+ */
 async function main() {
+  const fs = require('fs').promises;
   const { name: pkgName } = require('../package.json');
-  const { promisify } = require('util');
   const argv = process.argv.slice(2);
   const inputDir = argv[0];
   const outputDir = argv[1] ?? 'dist';
@@ -8,7 +13,7 @@ async function main() {
 
   const types = await findTypeFiles();
   const typesBundle = await bundleTypes(types);
-  await promisify(require('fs').writeFile)(bundlePath, typesBundle);
+  await fs.writeFile(bundlePath, typesBundle);
 
   global.console.log('Types successfully bundle');
   return;
@@ -30,7 +35,7 @@ async function main() {
    * @returns {Promise<string>}
    */
   async function dtsToModule(typeFile) {
-    const code = await promisify(require('fs').readFile)(typeFile);
+    const code = await fs.readFile(typeFile);
     const module = typeFile.replace(`${inputDir}/`, '').replace(/\.d\.ts$/, '');
     return `declare module "${pkgName}/${module}" {\n${code}}`;
   }
@@ -41,10 +46,10 @@ async function main() {
    * @returns {Promise<string[]>}
    */
   async function readdir(dir, filter) {
-    const dirFiles = await promisify(require('fs').readdir)(dir);
+    const dirFiles = await fs.readdir(dir);
     const allFiles = await Promise.all(dirFiles.map(async (fileName) => {
       const path = require('path').join(dir, fileName);
-      const isDirectory = (await promisify(require('fs').lstat)(path)).isDirectory();
+      const isDirectory = (await fs.lstat(path)).isDirectory();
       return isDirectory ? readdir(path, filter) : path;
     }));
     return allFiles.flat(1).filter((it) => filter.test(it));
