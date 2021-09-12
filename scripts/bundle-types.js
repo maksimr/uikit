@@ -1,14 +1,7 @@
-/**
- * Bundle provided d.ts files into one bundle
- * to support auto-import in VSCode and 
- * other VSCode like editors
- */
 async function main() {
   const fs = require('fs').promises;
   const { name: pkgName } = require('../package.json');
-  const argv = process.argv.slice(2);
-  const inputDir = argv[0];
-  const outputDir = argv[1] ?? 'dist';
+  const [inputDir, outputDir = 'dist'] = process.argv.slice(2);
   const bundlePath = require('path').join(outputDir, 'index.d.ts');
 
   const types = await findTypeFiles();
@@ -19,7 +12,7 @@ async function main() {
   return;
 
   async function findTypeFiles() {
-    return await readdir(inputDir, /\.d\.ts$/);
+    return await readdirRecursive(inputDir, /\.d\.ts$/);
   }
 
   /**
@@ -27,14 +20,14 @@ async function main() {
    * @returns {Promise<string>}
    */
   async function bundleTypes(types) {
-    return (await Promise.all(types.map(dtsToModule))).join('\n');
+    return (await Promise.all(types.map(wrapTypeInModule))).join('\n');
   }
 
   /**
    * @param {string} typeFile 
    * @returns {Promise<string>}
    */
-  async function dtsToModule(typeFile) {
+  async function wrapTypeInModule(typeFile) {
     const code = await fs.readFile(typeFile);
     const module = typeFile.replace(`${inputDir}/`, '').replace(/\.d\.ts$/, '');
     return `declare module "${pkgName}/${module}" {\n${code}}`;
@@ -45,12 +38,12 @@ async function main() {
    * @param {RegExp} filter 
    * @returns {Promise<string[]>}
    */
-  async function readdir(dir, filter) {
+  async function readdirRecursive(dir, filter) {
     const dirFiles = await fs.readdir(dir);
     const allFiles = await Promise.all(dirFiles.map(async (fileName) => {
       const path = require('path').join(dir, fileName);
       const isDirectory = (await fs.lstat(path)).isDirectory();
-      return isDirectory ? readdir(path, filter) : path;
+      return isDirectory ? readdirRecursive(path, filter) : path;
     }));
     return allFiles.flat(1).filter((it) => filter.test(it));
   }
