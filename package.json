@@ -21,7 +21,10 @@
     "test:cpd": "jscpd --pattern 'lib/**/*.js' --ignore '**/*.test.js,**/*.e2e.js'",
     "lint": "eslint lib/ src/ test/"
   },
-  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=17",
+    "@types/react": ">=17"
+  },
   "devDependencies": {
     "react": "17.0.2",
     "react-dom": "17.0.2",
