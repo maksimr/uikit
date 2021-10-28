@@ -19,6 +19,7 @@ module.exports = function(config) {
     customLaunchers: {
       Chrome: {
         base: 'SnapshotHeadlessLauncher',
+        driver: require('playwright').chromium,
         flags: ['--font-render-hinting=none', '--no-sandbox']
       },
       Firefox: {
