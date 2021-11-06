@@ -18,7 +18,7 @@
     "test": "jest --passWithNoTests",
     "test:e2e": "karma start ./test/e2e/karma.config.js",
     "test:type": "tsc",
-    "test:cpd": "jscpd --pattern 'lib/**/*.js' --ignore '**/*.test.js,**/*.e2e.js'",
+    "test:cpd": "jscpd --pattern 'lib/**/*.js' --ignore '**/*.test.js,**/*.e2e.js' --exitCode 1",
     "lint": "eslint lib/ src/ test/"
   },
   "peerDependencies": {
@@ -55,7 +55,7 @@
     "karma-jasmine": "4.0.1",
     "karma-image-snapshot": "0.0.10",
     "jest-image-snapshot": "4.5.1",
-    "jscpd": "3.4.1"
+    "jscpd": "3.4.2"
   },
   "jest": {
     "testEnvironment": "jsdom"
