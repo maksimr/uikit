@@ -1,7 +1,7 @@
 {
   "name": "@maksimr/uikit",
   "author": "Maksim Ryzhikov <rv.maksim@gmail.com> (https://github.com/maksimr)",
-  "version": "0.0.46",
+  "version": "0.0.47",
   "engines": {
     "node": ">= 14"
   },
