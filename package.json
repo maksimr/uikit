@@ -55,7 +55,7 @@
     "karma-jasmine": "4.0.1",
     "karma-image-snapshot": "0.0.10",
     "jest-image-snapshot": "4.5.1",
-    "jscpd": "3.4.2"
+    "jscpd": "3.4.5"
   },
   "jest": {
     "testEnvironment": "jsdom"
