@@ -50,7 +50,7 @@
     "@jest/globals": "27.4.6",
     "jest-cli": "27.4.7",
     "playwright": "1.18.1",
-    "karma": "6.3.13",
+    "karma": "6.3.15",
     "karma-webpack": "5.0.0",
     "karma-jasmine": "4.0.1",
     "karma-image-snapshot": "0.0.10",
