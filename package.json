@@ -49,7 +49,7 @@
     "jest": "27.5.1",
     "@jest/globals": "27.5.1",
     "jest-cli": "27.5.1",
-    "playwright": "1.19.0",
+    "playwright": "1.19.1",
     "karma": "6.3.16",
     "karma-webpack": "5.0.0",
     "karma-jasmine": "4.0.1",
