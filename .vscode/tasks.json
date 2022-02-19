@@ -3,17 +3,17 @@
   "tasks": [
     {
       "type": "shell",
-      "command": "npm run test -- --watch",
+      "command": "npm run test -- --no-single-run",
       "group": "test",
       "label": "npm: test:watch",
-      "detail": "jest --passWithNoTests --watch"
+      "detail": "run test in watch mode"
     },
     {
       "type": "shell",
       "command": "npm run test:e2e",
       "group": "test",
       "label": "npm: test:e2e",
-      "detail": "npm run test:e2e"
+      "detail": "run e2e tests"
     }
   ]
 }
