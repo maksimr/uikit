@@ -14,7 +14,7 @@ module.exports = function(config) {
       return preprocessors;
     }, {}),
     webpack: require('../webpack.config.js')(),
-    reporters: ['progress'],
+    reporters: ['spec'],
     autoWatch: true,
     customLaunchers: {
       ChromeHeadlessNoSandbox: {

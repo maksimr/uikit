@@ -28,7 +28,7 @@ module.exports = function(config) {
         flags: ['--font-render-hinting=none', '--no-sandbox']
       }
     },
-    reporters: ['progress', 'outdated-snapshot'],
+    reporters: ['spec', 'outdated-snapshot'],
     autoWatch: true,
     browsers: ['Chrome'],
     singleRun: true
