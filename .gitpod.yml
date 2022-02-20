@@ -5,6 +5,6 @@ tasks:
     init: |
       npm ci
       npx playwright install
-    command: export SANDBOX_URL="$(gp url 8080 2>/dev/null)" && npm start
+    command: export SANDBOX_URL="$(gp url 8080 2>/dev/null)" && npm ci && npm start
 ports:
   - port: 8080
