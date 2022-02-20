@@ -36,5 +36,9 @@ module.exports = () => ({
   ],
   devServer: {
     allowedHosts: 'all'
+  },
+  stats: 'minimal',
+  infrastructureLogging: {
+    level: 'warn',
   }
 });
