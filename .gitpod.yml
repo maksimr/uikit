@@ -1,7 +1,10 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
-  - init: npm ci && npx playwright install
+  - name: Dependencies
+    init: |
+      npm ci
+      npx playwright install
     command: export SANDBOX_URL="$(gp url 8080 2>/dev/null)" && npm start
 ports:
   - port: 8080
