@@ -30,6 +30,7 @@ export function createSpy(fn) {
 }
 
 export const spyOn = global.spyOn;
+export const objectContaining = jasmine.objectContaining;
 
 /**
  * @returns {jasmine.Clock}
