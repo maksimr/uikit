@@ -14,6 +14,10 @@ module.exports = function(config) {
       return preprocessors;
     }, {}),
     webpack: require('../webpack.config.js')(),
+    specReporter: {
+      suppressSkipped: true,
+      showSpecTiming: true
+    },
     reporters: ['spec'],
     autoWatch: true,
     customLaunchers: {
