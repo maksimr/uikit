@@ -21,6 +21,15 @@ export function advanceTimersByTime(msToRun) {
 }
 
 /**
+ * @param {(...args: any[]) => any} [fn]
+ * @returns {jasmine.Spy<fn>}
+ */
+export function createSpy(fn) {
+  const spyFn = jasmine.createSpy();
+  return fn ? spyFn.and.callFake(fn) : spyFn;
+}
+
+/**
  * @returns {jasmine.Clock}
  */
 function clock() {
