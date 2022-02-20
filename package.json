@@ -75,7 +75,6 @@
       "jasmine": true,
       "describe": true,
       "it": true,
-      "spyOn": true,
       "beforeEach": true,
       "beforeAll": true,
       "afterAll": true,

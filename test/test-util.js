@@ -29,6 +29,8 @@ export function createSpy(fn) {
   return fn ? spyFn.and.callFake(fn) : spyFn;
 }
 
+export const spyOn = global.spyOn;
+
 /**
  * @returns {jasmine.Clock}
  */
