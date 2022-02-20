@@ -1,4 +1,6 @@
 module.exports = function(config) {
+  require('../karma.config')(config);
+
   const snapshotDir = require('path').resolve(__dirname, '__image_snapshots__');
   const files = [
     { pattern: 'lib/**/*.e2e.js', watched: false }
@@ -12,7 +14,6 @@ module.exports = function(config) {
       preprocessors[file.pattern || file] = ['webpack'];
       return preprocessors;
     }, {}),
-    webpack: require('../../webpack.config.js')(),
     snapshot: {
       customSnapshotsDir: snapshotDir
     },
@@ -29,8 +30,6 @@ module.exports = function(config) {
       }
     },
     reporters: ['spec', 'outdated-snapshot'],
-    autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: true
+    browsers: ['Chrome']
   });
 };
