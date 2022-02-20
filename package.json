@@ -72,7 +72,6 @@
       "node": true
     },
     "globals": {
-      "jasmine": true,
       "describe": true,
       "it": true,
       "beforeEach": true,

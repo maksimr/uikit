@@ -1,3 +1,5 @@
+const jasmine = global.jasmine;
+
 afterEach(function() {
   clock().uninstall();
 });
