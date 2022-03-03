@@ -27,7 +27,7 @@ jobs:
         run: |
           npm run test:e2e -- --browsers=Chrome
           npm run test:e2e -- --browsers=Firefox
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: diff_output
