@@ -1,8 +1,11 @@
 module.exports = function(config) {
   process.env.CHROME_BIN = process.env.CHROME_BIN || require('playwright').chromium.executablePath();
 
+  const webpackConfig = require('../webpack.config.js')();
+  webpackConfig.plugins.push(new (require('./lib/webpack-affected-files-plugin'))());
+
   const files = [
-    { pattern: 'lib/**/*.test.js', watched: false }
+    { pattern: 'test/main.test.js', watched: false }
   ];
 
   config.set({
@@ -13,7 +16,7 @@ module.exports = function(config) {
       preprocessors[file.pattern || file] = ['webpack'];
       return preprocessors;
     }, {}),
-    webpack: require('../webpack.config.js')(),
+    webpack: webpackConfig,
     specReporter: {
       suppressSkipped: true,
       showSpecTiming: true
