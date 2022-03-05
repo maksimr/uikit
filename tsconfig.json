@@ -20,6 +20,7 @@
   "include": [
     "@types/**/*",
     "scripts/**/*",
+    "test",
     "src",
     "lib"
   ],

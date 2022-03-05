@@ -1,5 +1,9 @@
 const ASSET_PATH = process.env.ASSET_PATH || '';
 
+/**
+ * @typedef {import('webpack').Configuration & {devServer?: import('webpack').WebpackOptionsNormalized['devServer']}} WebpackConfig
+ * @returns {WebpackConfig}
+ */
 module.exports = () => ({
   output: {
     filename: '[name].[contenthash].js',

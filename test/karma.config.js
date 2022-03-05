@@ -1,8 +1,9 @@
-module.exports = function(config) {
+module.exports = function(/**@type {any}*/config) {
   process.env.CHROME_BIN = process.env.CHROME_BIN || require('playwright').chromium.executablePath();
 
   const webpackConfig = require('../webpack.config.js')();
-  webpackConfig.plugins.push(new (require('./lib/webpack-affected-files-plugin'))());
+  const webpackAffectedFilesPlugin = require('./lib/webpack-affected-files-plugin');
+  webpackConfig.plugins?.push(new webpackAffectedFilesPlugin());
 
   const files = [
     { pattern: 'test/main.test.js', watched: false }
@@ -13,9 +14,9 @@ module.exports = function(config) {
     frameworks: ['jasmine', 'webpack'],
     files: files,
     preprocessors: files.reduce((preprocessors, file) => {
-      preprocessors[file.pattern || file] = ['webpack'];
+      preprocessors[file.pattern] = ['webpack'];
       return preprocessors;
-    }, {}),
+    }, /**@type {Object<string,string[]>}*/({})),
     webpack: webpackConfig,
     specReporter: {
       suppressSkipped: true,

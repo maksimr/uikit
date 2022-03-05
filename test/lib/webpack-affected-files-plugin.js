@@ -1,8 +1,7 @@
 module.exports = class {
   apply( /**@type {any}*/ compiler) {
     const name = 'WebpackAffectedFilesPlugin';
-    // @ts-ignore
-    const {ConcatSource} = require('webpack-sources');
+    const { ConcatSource } = require('webpack-sources');
 
     let firstRun = true;
     compiler.hooks.compilation.tap(name, ( /**@type {any}*/ compilation) => {

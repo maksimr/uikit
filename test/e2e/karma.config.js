@@ -1,4 +1,4 @@
-module.exports = function(config) {
+module.exports = function(/**@type {any}*/config) {
   require('../karma.config')(config);
 
   const snapshotDir = require('path').resolve(__dirname, '__image_snapshots__');
@@ -11,9 +11,9 @@ module.exports = function(config) {
     frameworks: ['snapshot-jasmine', 'jasmine', 'webpack'],
     files: files,
     preprocessors: files.reduce((preprocessors, file) => {
-      preprocessors[file.pattern || file] = ['webpack'];
+      preprocessors[file.pattern] = ['webpack'];
       return preprocessors;
-    }, {}),
+    }, /**@type {Object<string,string[]>}*/({})),
     snapshot: {
       customSnapshotsDir: snapshotDir
     },
