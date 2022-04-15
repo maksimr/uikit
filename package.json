@@ -50,7 +50,7 @@
     "webpack-dev-server": "4.8.1",
     "eslint": "8.13.0",
     "eslint-plugin-react": "7.29.4",
-    "@testing-library/react": "13.0.1",
+    "@testing-library/react": "13.1.1",
     "playwright": "1.21.0",
     "karma": "6.3.18",
     "karma-webpack": "5.0.0",
