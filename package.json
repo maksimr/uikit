@@ -47,7 +47,7 @@
     "webpack": "5.72.1",
     "webpack-cli": "4.9.2",
     "webpack-sources": "3.2.3",
-    "webpack-dev-server": "4.9.0",
+    "webpack-dev-server": "4.9.1",
     "eslint": "8.16.0",
     "eslint-plugin-react": "7.30.0",
     "@testing-library/react": "13.3.0",
