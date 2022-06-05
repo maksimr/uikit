@@ -56,7 +56,7 @@
     "karma-webpack": "5.0.0",
     "karma-jasmine": "5.0.1",
     "karma-chrome-launcher": "3.1.1",
-    "karma-image-snapshot": "0.0.11",
+    "karma-image-snapshot": "0.0.12",
     "karma-spec-reporter": "0.0.34",
     "jest-image-snapshot": "4.5.1",
     "jscpd": "3.4.5"
