@@ -2,6 +2,7 @@ module.exports = function(/**@type {any}*/config) {
   process.env.CHROME_BIN = process.env.CHROME_BIN || require('playwright').chromium.executablePath();
 
   const webpackConfig = require('../webpack.config.js')();
+  webpackConfig.devtool = 'eval-source-map';
   const webpackAffectedFilesPlugin = require('./lib/webpack-affected-files-plugin');
   webpackConfig.plugins?.push(new webpackAffectedFilesPlugin());
 
@@ -27,7 +28,11 @@ module.exports = function(/**@type {any}*/config) {
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
-        flags: ['--no-sandbox', '--disable-setuid-sandbox']
+        flags: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+          '--remote-debugging-port=9333'
+        ]
       }
     },
     browsers: ['ChromeHeadlessNoSandbox'],

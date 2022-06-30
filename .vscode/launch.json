@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "attach",
+      "name": "Karma (Attach)",
+      "address": "localhost",
+      "port": 9333,
+      "sourceMaps": true,
+      "pathMapping": {
+        "/": "${workspaceRoot}/",
+        "/base": "${workspaceFolder}"
+      }
+    }
+  ]
+}
