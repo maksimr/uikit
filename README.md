@@ -1,1 +1,2 @@
-# uikit ![Test](https://github.com/maksimr/uikit/workflows/Test/badge.svg) [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/maksimr/uikit)
+# uikit
+[![Open in Gitpod](https://img.shields.io/badge/Gitpod-Open%20in%20Gitpod-%230092CF.svg)](https://gitpod.io/#https://github.com/maksimr/uikit)
