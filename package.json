@@ -12,9 +12,12 @@
     "build:types-bundle": "node ./scripts/bundle-types.js dist",
     "build:pkg": "tsc --project tsconfig.build.json --declaration --outDir dist --noEmit false",
     "postbuild:pkg": "npm run build:types-bundle && cp package.json dist/package.json",
-    "preprelease": "npm run build:pkg",
-    "release": "npm version patch -m 'bump: version to %s'",
-    "postrelease": "git push && git push --tags",
+    "release:major": "changelog -M && npm run release -- major",
+    "release:minor": "changelog -m && npm run release -- minor",
+    "release:patch": "changelog -p && npm run release -- patch",
+    "prerelease": "git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md'",
+    "release": "npm version -m 'bump: version to %s'",
+    "postrelease": "git push origin && git push origin --tags",
     "test": "karma start ./test/karma.config.js",
     "test:e2e": "karma start ./test/e2e/karma.config.js",
     "test:type": "tsc",
@@ -59,7 +62,8 @@
     "karma-image-snapshot": "0.0.12",
     "karma-spec-reporter": "0.0.34",
     "jest-image-snapshot": "5.1.0",
-    "jscpd": "3.4.5"
+    "jscpd": "3.4.5",
+    "generate-changelog": "1.8.0"
   },
   "eslintConfig": {
     "parser": "@babel/eslint-parser",
