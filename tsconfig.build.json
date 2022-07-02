@@ -3,6 +3,7 @@
   "exclude": [
     "src",
     "scripts",
+    "test",
     "**/*.e2e.js",
     "**/*.test.js"
   ]
