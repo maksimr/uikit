@@ -19,6 +19,7 @@
     "release": "npm version -m 'bump: version to %s'",
     "postrelease": "git push origin && git push origin --tags",
     "test": "karma start ./test/karma.config.js",
+    "test:watch": "npm test -- --no-single-run",
     "test:e2e": "karma start ./test/e2e/karma.config.js",
     "test:type": "tsc",
     "test:cpd": "jscpd --pattern 'lib/**/*.js' --ignore '**/*.test.js,**/*.e2e.js' --exitCode 1",
