@@ -1,3 +1,9 @@
+#### 0.0.61 (2022-07-02)
+
+##### Chores
+
+*  don`t publish test folder ([4d07c612](https://github.com/maksimr/uikit/commit/4d07c612c84d69df0c80f21543da66039b8cbbf2))
+
 #### 0.0.60 (2022-07-02)
 
 ##### Chores
