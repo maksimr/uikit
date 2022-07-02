@@ -1,3 +1,19 @@
+#### 0.0.60 (2022-07-02)
+
+##### Chores
+
+*  add test watch script ([13e3e6d4](https://github.com/maksimr/uikit/commit/13e3e6d41130d2f513c69ac6397902337938d87d))
+*  add test status and npm badges to README ([96a3899b](https://github.com/maksimr/uikit/commit/96a3899bc5e164bb98157a44d8ac92115def4727))
+
+##### New Features
+
+*  allow use not memoized function for Cursor query without performance degradation ([69104beb](https://github.com/maksimr/uikit/commit/69104bebcf70e92f9341766fde64bcf9113c0e03))
+
+##### Refactors
+
+*  remove unnecessary memoization because react already cache selector, and store.watch already bind to the store ([1c1b46cb](https://github.com/maksimr/uikit/commit/1c1b46cb4077d684adc830bafafa3860ab902bf0))
+*  User built in react hook for Store ([73881c7a](https://github.com/maksimr/uikit/commit/73881c7a1544e2811f8fd05551b3e58290be0f94))
+
 #### 0.0.59 (2022-07-02)
 
 ##### Chores
