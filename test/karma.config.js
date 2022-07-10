@@ -2,6 +2,7 @@ module.exports = function(/**@type {any}*/config) {
   process.env.CHROME_BIN = process.env.CHROME_BIN || require('playwright').chromium.executablePath();
 
   const webpackConfig = require('../webpack.config.js')();
+  delete webpackConfig.output?.filename;
   webpackConfig.devtool = 'eval-source-map';
   const webpackAffectedFilesPlugin = require('./lib/webpack-affected-files-plugin');
   webpackConfig.plugins?.push(new webpackAffectedFilesPlugin());
