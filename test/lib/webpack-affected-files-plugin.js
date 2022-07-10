@@ -5,7 +5,7 @@ module.exports = class {
 
     let firstRun = true;
     compiler.hooks.compilation.tap(name, ( /**@type {any}*/ compilation) => {
-      compilation.hooks.optimizeChunkAssets.tap(name, ( /**@type {any}*/ chunks) => {
+      compilation.hooks.processAssets.tap({ name, stage: compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE }, ( /**@type {{ [pathname: string]: import('webpack-sources').Source }}*/ assets) => {
         const reasons = ( /**@type {any}*/ module) => Array.from(compilation.moduleGraph.getIncomingConnections(module));
         const moduleId = ( /**@type {any}*/ module) => compilation.chunkGraph.getModuleId(module);
         const reasonToModule = ( /**@type {any}*/ reason) => reason.originModule;
@@ -38,13 +38,11 @@ module.exports = class {
 
         firstRun = false;
         const karmaWebpackManifest = JSON.stringify(Array.from(affected));
-        for (const chunk of chunks) {
-          for (const file of chunk.files) {
-            compilation.assets[file] = new ConcatSource(
-              `this.karmaWebpackManifest = ${karmaWebpackManifest};`,
-              '\n',
-              compilation.assets[file]);
-          }
+        for (const pathname in assets) {
+          compilation.assets[pathname] = new ConcatSource(
+            `this.karmaWebpackManifest = ${karmaWebpackManifest};`,
+            '\n',
+            compilation.assets[pathname]);
         }
       });
     });
