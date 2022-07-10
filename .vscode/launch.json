@@ -12,6 +12,18 @@
         "/": "${workspaceRoot}/",
         "/base": "${workspaceFolder}"
       }
+    },
+    {
+      "type": "chrome",
+      "request": "attach",
+      "name": "Karma e2e (Attach)",
+      "address": "localhost",
+      "port": 9334,
+      "sourceMaps": true,
+      "pathMapping": {
+        "/": "${workspaceRoot}/",
+        "/base": "${workspaceFolder}"
+      }
     }
   ]
 }

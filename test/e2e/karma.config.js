@@ -21,7 +21,7 @@ module.exports = function(/**@type {any}*/config) {
       Chrome: {
         base: 'SnapshotHeadlessLauncher',
         driver: require('playwright').chromium,
-        flags: ['--font-render-hinting=none', '--no-sandbox']
+        flags: ['--font-render-hinting=none', '--no-sandbox', '--remote-debugging-port=9334']
       },
       Firefox: {
         base: 'SnapshotHeadlessLauncher',
