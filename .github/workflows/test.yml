@@ -34,4 +34,4 @@ jobs:
           path: test/e2e/__image_snapshots__/__diff_output__
       - name: Run build tests
         run: |
-          node scripts/test-build.js
+          node scripts/run-build-test.js
