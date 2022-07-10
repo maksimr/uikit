@@ -21,6 +21,7 @@
     "test": "karma start ./test/karma.config.js",
     "test:watch": "npm test -- --no-single-run",
     "test:e2e": "karma start ./test/e2e/karma.config.js",
+    "test:e2e:watch": "npm run test:e2e -- --no-single-run --reporters spec",
     "test:type": "tsc",
     "test:cpd": "jscpd --pattern 'lib/**/*.js' --ignore '**/*.test.js,**/*.e2e.js' --exitCode 1",
     "lint": "eslint lib/ src/ test/"
