@@ -4,7 +4,7 @@
     {
       "type": "chrome",
       "request": "attach",
-      "name": "Karma (Attach)",
+      "name": "Unit Tests",
       "address": "localhost",
       "port": 9333,
       "sourceMaps": true,
@@ -16,7 +16,7 @@
     {
       "type": "chrome",
       "request": "attach",
-      "name": "Karma e2e (Attach)",
+      "name": "Visual Regression Tests",
       "address": "localhost",
       "port": 9334,
       "sourceMaps": true,
