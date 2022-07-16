@@ -11,6 +11,11 @@ module.exports = function(/**@type {any}*/config) {
     { pattern: 'test/main.test.js', watched: false }
   ];
 
+  /**@type {boolean}*/
+  const isWatch = process.argv.indexOf('--no-single-run') > -1;
+  /**@type {number|undefined}*/
+  const waitTimeout = isWatch ? (30 * 60000) : undefined;
+
   config.set({
     basePath: '../',
     frameworks: ['jasmine', 'webpack'],
@@ -37,6 +42,9 @@ module.exports = function(/**@type {any}*/config) {
       }
     },
     browsers: ['ChromeHeadlessNoSandbox'],
+    browserDisconnectTimeout: waitTimeout,
+    browserNoActivityTimeout: waitTimeout,
+    pingTimeout: waitTimeout,
     singleRun: true
   });
 };
