@@ -1,14 +1,14 @@
 module.exports = class {
-  apply( /**@type {any}*/ compiler) {
+  apply( /**@type {import('webpack').Compiler}*/ compiler) {
     const name = 'WebpackAffectedFilesPlugin';
     const { ConcatSource } = require('webpack-sources');
 
     let firstRun = true;
-    compiler.hooks.compilation.tap(name, ( /**@type {any}*/ compilation) => {
-      compilation.hooks.processAssets.tap({ name, stage: compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE }, ( /**@type {{ [pathname: string]: import('webpack-sources').Source }}*/ assets) => {
-        const reasons = ( /**@type {any}*/ module) => Array.from(compilation.moduleGraph.getIncomingConnections(module));
-        const moduleId = ( /**@type {any}*/ module) => compilation.chunkGraph.getModuleId(module);
-        const reasonToModule = ( /**@type {any}*/ reason) => reason.originModule;
+    compiler.hooks.compilation.tap(name, (compilation) => {
+      compilation.hooks.processAssets.tap({ name, stage: compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE }, (assets) => {
+        const reasons = ( /**@type {import('webpack').Module}*/ module) => Array.from(compilation.moduleGraph.getIncomingConnections(module));
+        const moduleId = ( /**@type {import('webpack').Module}*/ module) => compilation.chunkGraph.getModuleId(module);
+        const reasonToModule = ( /**@type {import('webpack').ModuleGraphConnection}*/ reason) => reason.originModule;
         const affected = (firstRun ? [
           /*
               Always run all tests on the first run because this is what a developer
@@ -39,10 +39,10 @@ module.exports = class {
         firstRun = false;
         const karmaWebpackManifest = JSON.stringify(Array.from(affected));
         for (const pathname in assets) {
-          compilation.assets[pathname] = new ConcatSource(
+          compilation.assets[pathname] = /**@type {import('webpack').sources.Source}*/(new ConcatSource(
             `this.karmaWebpackManifest = ${karmaWebpackManifest};`,
             '\n',
-            compilation.assets[pathname]);
+            /**@type {any}*/(compilation.assets[pathname])));
         }
       });
     });
