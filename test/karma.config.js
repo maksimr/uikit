@@ -37,6 +37,7 @@ module.exports = function(/**@type {any}*/config) {
         flags: [
           '--no-sandbox',
           '--disable-setuid-sandbox',
+          '--js-flags="--expose-gc"',
           '--remote-debugging-port=9333'
         ]
       }
