@@ -1,4 +1,4 @@
-module.exports = function(/**@type {any}*/config) {
+module.exports = function(/**@type {{set: Function}}*/config) {
   require('../karma.config')(config);
 
   const snapshotDir = require('path').resolve(__dirname, '__image_snapshots__');

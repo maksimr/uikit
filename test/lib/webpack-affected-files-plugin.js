@@ -42,7 +42,7 @@ module.exports = class {
           compilation.assets[pathname] = /**@type {import('webpack').sources.Source}*/(new ConcatSource(
             `this.karmaWebpackManifest = ${karmaWebpackManifest};`,
             '\n',
-            /**@type {any}*/(compilation.assets[pathname])));
+            /**@type {import('webpack-sources').Source}*/(compilation.assets[pathname])));
         }
       });
     });

@@ -1,4 +1,4 @@
-module.exports = function(/**@type {any}*/config) {
+module.exports = function(/**@type {{set: Function}}*/config) {
   process.env.CHROME_BIN = process.env.CHROME_BIN || require('playwright').chromium.executablePath();
 
   const webpackConfig = require('../webpack.config.js')();
