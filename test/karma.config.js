@@ -13,9 +13,8 @@ module.exports = function(/**@type {{set: Function}}*/config) {
 
   /**@type {boolean}*/
   const isWatch = process.argv.indexOf('--no-single-run') > -1;
-  const MAX_INT = Math.pow(2, 31) - 1;
   /**@type {number|undefined}*/
-  const waitTimeout = isWatch ? MAX_INT : undefined;
+  const waitTimeout = isWatch ? Math.pow(2, 30) : undefined;
 
   config.set({
     basePath: '../',
