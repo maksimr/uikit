@@ -1,6 +1,11 @@
 module.exports = {
-  presets: ['@babel/preset-react', ['@babel/preset-env', {
-    'exclude': ['transform-regenerator']
-  }]],
+  presets: [
+    ['@babel/preset-react', {
+      'runtime': 'automatic'
+    }],
+    ['@babel/preset-env', {
+      'exclude': ['transform-regenerator']
+    }]
+  ],
   'compact': true
 };
