@@ -63,7 +63,7 @@
     "karma-chrome-launcher": "3.1.1",
     "karma-image-snapshot": "0.0.12",
     "karma-spec-reporter": "0.0.34",
-    "jest-image-snapshot": "5.1.0",
+    "jest-image-snapshot": "5.1.1",
     "jscpd": "3.4.5",
     "generate-changelog": "1.8.0"
   },
