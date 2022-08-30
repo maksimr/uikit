@@ -41,7 +41,7 @@
     "@types/webpack-env": "1.18.0",
     "@types/webpack-sources": "3.2.0",
     "@types/react-dom": "18.0.6",
-    "@types/react": "18.0.17",
+    "@types/react": "18.0.18",
     "@babel/core": "7.18.13",
     "@babel/preset-env": "7.18.10",
     "@babel/preset-react": "7.18.6",
