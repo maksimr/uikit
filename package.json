@@ -53,7 +53,7 @@
     "webpack-cli": "4.10.0",
     "webpack-sources": "3.2.3",
     "webpack-dev-server": "4.11.0",
-    "eslint": "8.23.0",
+    "eslint": "8.23.1",
     "eslint-plugin-react": "7.31.8",
     "@testing-library/react": "13.4.0",
     "playwright": "1.25.2",
