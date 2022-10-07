@@ -56,7 +56,7 @@
     "eslint": "8.24.0",
     "eslint-plugin-react": "7.31.8",
     "@testing-library/react": "13.4.0",
-    "playwright": "1.26.1",
+    "playwright": "1.27.0",
     "karma": "6.4.1",
     "karma-webpack": "5.0.0",
     "karma-jasmine": "5.1.0",
