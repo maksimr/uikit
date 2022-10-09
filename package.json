@@ -54,7 +54,7 @@
     "webpack-sources": "3.2.3",
     "webpack-dev-server": "4.11.1",
     "eslint": "8.25.0",
-    "eslint-plugin-react": "7.31.8",
+    "eslint-plugin-react": "7.31.9",
     "@testing-library/react": "13.4.0",
     "playwright": "1.27.0",
     "karma": "6.4.1",
