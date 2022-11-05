@@ -1,3 +1,21 @@
+#### 0.0.63 (2022-11-05)
+
+##### Chores
+
+* **deps:**
+  *  update babel monorepo to v7.20.2 ([519a6f98](https://github.com/maksimr/uikit/commit/519a6f9870e2d72166acbabf0619ab70dddab1ab))
+  *  update node.js to v18.12.1 ([142d298f](https://github.com/maksimr/uikit/commit/142d298f09abeabd04fc18c88d72fe146228136e))
+  *  update dependency @types/react to v18.0.25 ([233d8700](https://github.com/maksimr/uikit/commit/233d8700f4f9d76cb2ee378e8f4b89438695fc71))
+  *  update dependency jest-image-snapshot to v6 ([d091a7d8](https://github.com/maksimr/uikit/commit/d091a7d856cd2ea20d6c379305be0a6bce0239f6))
+  *  update dependency babel-loader to v9.1.0 ([bf7ca2b3](https://github.com/maksimr/uikit/commit/bf7ca2b3457af9d58acface6de6ab3c8623ebc21))
+  *  update dependency babel-loader to v9.0.1 ([befdd4ce](https://github.com/maksimr/uikit/commit/befdd4cef72b7e75e22cef27cf10e00ac00d0c46))
+*  remove not worth code ([348ba254](https://github.com/maksimr/uikit/commit/348ba254fcf3ed1632496336b9a71f7e34389d77))
+
+##### New Features
+
+*  support equality function for store ([a7794196](https://github.com/maksimr/uikit/commit/a7794196743d74f7414fb7e9819dd9f1b13553df))
+*  add shallow equal ([bdb4ce7a](https://github.com/maksimr/uikit/commit/bdb4ce7a866efa81f85feb62483c95925b61eea4))
+
 #### 0.0.62 (2022-10-30)
 
 ##### Chores
