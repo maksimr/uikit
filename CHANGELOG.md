@@ -1,3 +1,9 @@
+#### 0.0.65 (2022-11-06)
+
+##### Refactors
+
+*  use proper hook for javascript update only ([b53ca4b1](https://github.com/maksimr/uikit/commit/b53ca4b12d4d4b3f062e010c17cd07dcec3148d3))
+
 #### 0.0.64 (2022-11-06)
 
 ##### Chores
