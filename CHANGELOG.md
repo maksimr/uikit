@@ -1,3 +1,13 @@
+#### 0.0.64 (2022-11-06)
+
+##### Chores
+
+*  use createStore instead Store constructor ([74446779](https://github.com/maksimr/uikit/commit/7444677926dd3f1a33fc2b596938ee558d093c54))
+
+##### Refactors
+
+*  rename cursor to store cursor to be more precise ([6a31b9d9](https://github.com/maksimr/uikit/commit/6a31b9d9273eac020fd91b225c41c198d42b1db9))
+
 #### 0.0.63 (2022-11-05)
 
 ##### Chores
