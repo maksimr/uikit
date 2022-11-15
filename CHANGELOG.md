@@ -1,3 +1,18 @@
+#### 0.0.67 (2022-11-15)
+
+##### Chores
+
+*  rename test suite ([27e84a61](https://github.com/maksimr/uikit/commit/27e84a6194f06196363455fec5e626f9e5465948))
+*  improve doctype ([fcc9cf7b](https://github.com/maksimr/uikit/commit/fcc9cf7bf29504c3ca4bb446713be01871277045))
+
+##### New Features
+
+*  add resize observer hook ([6dd826b7](https://github.com/maksimr/uikit/commit/6dd826b71b0d2a8bb3d3c1ed9d8c0ac7756bb9dd))
+
+##### Bug Fixes
+
+*  move on native resize observer ([48061afa](https://github.com/maksimr/uikit/commit/48061afac518353060720a9d4ebc718640223130))
+
 #### 0.0.66 (2022-11-15)
 
 ##### Chores
