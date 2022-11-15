@@ -1,3 +1,13 @@
+#### 0.0.68 (2022-11-15)
+
+##### Chores
+
+*  remove unnecessary type and add comment ([3ebdbf58](https://github.com/maksimr/uikit/commit/3ebdbf583d5897d5fd9c7d092e74a3af0cb2dde5))
+
+##### Refactors
+
+*  rename link click interceptor ([b55449d9](https://github.com/maksimr/uikit/commit/b55449d941b50cdd0917ad6bdfc0813e00d4abb0))
+
 #### 0.0.67 (2022-11-15)
 
 ##### Chores
