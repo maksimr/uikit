@@ -1,3 +1,17 @@
+#### 0.0.66 (2022-11-15)
+
+##### Chores
+
+* **deps:**
+  *  update dependency @types/react-dom to v18.0.9 ([06907193](https://github.com/maksimr/uikit/commit/06907193d293728f937b7222c2acfa76ece03c5a))
+  *  update dependency css-loader to v6.7.2 ([3c9ee079](https://github.com/maksimr/uikit/commit/3c9ee0799335e27da71f7aa7c4ce80cd764b0454))
+  *  update dependency webpack to v5.75.0 ([b1f4189f](https://github.com/maksimr/uikit/commit/b1f4189f507d2a533b03093c152c5b6584c69ba4))
+  *  update dependency eslint to v8.27.0 ([8fa6ecb0](https://github.com/maksimr/uikit/commit/8fa6ecb0e771f40943d1d6fb9dcaea8f4b8f6748))
+
+##### Refactors
+
+*  rename get timezone offset function ([bedf6042](https://github.com/maksimr/uikit/commit/bedf6042e4df5c3413d9d425c8356ed2291af84c))
+
 #### 0.0.65 (2022-11-06)
 
 ##### Refactors
