@@ -1,3 +1,21 @@
+#### 0.0.69 (2022-11-26)
+
+##### Chores
+
+* **deps:**
+  *  update dependency playwright to v1.28.1 ([a09c93a3](https://github.com/maksimr/uikit/commit/a09c93a33f25016d8b4d1888c51f728221e5ce51))
+  *  update dependency eslint to v8.28.0 ([8584e977](https://github.com/maksimr/uikit/commit/8584e977b069dab712c2e3098c3c25b07c999eb8))
+  *  update dependency eslint-plugin-react to v7.31.11 ([5dde147c](https://github.com/maksimr/uikit/commit/5dde147c4393182a37b3044e02be63cf2e413fc5))
+  *  update dependency webpack-cli to v5 ([2db13203](https://github.com/maksimr/uikit/commit/2db1320354ffa492df46be7a0917041e21894fbc))
+  *  update dependency playwright to v1.28.0 ([718b9306](https://github.com/maksimr/uikit/commit/718b9306fce83a92f87d8af644827052f523b6f6))
+  *  update dependency typescript to v4.9.3 ([21474839](https://github.com/maksimr/uikit/commit/2147483961d925ba258dc81180902a37aa471d51))
+
+##### Refactors
+
+*  improve types ([6dcaea7e](https://github.com/maksimr/uikit/commit/6dcaea7e3e411b0b5810a9cf54f97be36e0a6617))
+*  optimize getting offset between child and ancestor nodes ([e0b70076](https://github.com/maksimr/uikit/commit/e0b7007655b5863af021422e10f64fca9c4958ac))
+*  improve type for consolidated events ([5d413067](https://github.com/maksimr/uikit/commit/5d413067e93ed06a5807145e5b1719507cd2d602))
+
 #### 0.0.68 (2022-11-15)
 
 ##### Chores
