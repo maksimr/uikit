@@ -4,8 +4,9 @@ module.exports = function(/**@type {{set: Function}}*/config) {
   const webpackConfig = require('../webpack.config.js')();
   delete webpackConfig.output?.filename;
   webpackConfig.devtool = 'eval-source-map';
-  const webpackAffectedFilesPlugin = require('./lib/webpack-affected-files-plugin');
-  webpackConfig.plugins?.push(new webpackAffectedFilesPlugin());
+  // @ts-expect-error
+  const WebpackAffectedFilesPlugin = require('@maksimr/karma-test-utils/lib/webpack-affected-files-plugin');
+  webpackConfig.plugins?.push(new WebpackAffectedFilesPlugin());
 
   const files = [
     { pattern: 'test/main.test.js', watched: false }
