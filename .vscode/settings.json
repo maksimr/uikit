@@ -1,0 +1,19 @@
+{
+  "cSpell.allowCompoundWords": true,
+  "cSpell.spellCheckOnlyWorkspaceFiles": true,
+  "cSpell.words": [
+    "ampm",
+    "AMPMS",
+    "datetime",
+    "ERANAMES",
+    "FIRSTDAYOFWEEK",
+    "Hhmsa",
+    "Hmmss",
+    "immer",
+    "pmatch",
+    "SHORTDAY",
+    "SHORTMONTH",
+    "STANDALONEMONTH",
+    "WEEKENDRANGE"
+  ]
+}
