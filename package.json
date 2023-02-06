@@ -87,6 +87,7 @@
     },
     "globals": {
       "describe": true,
+      "BigInt": true,
       "it": true,
       "beforeEach": true,
       "beforeAll": true,
