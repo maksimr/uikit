@@ -1,3 +1,56 @@
+### 0.1.0 (2023-02-07)
+
+##### Chores
+
+* **deps:**
+  *  update node.js to v18.14.0 ([564e711f](https://github.com/maksimr/uikit/commit/564e711f1c3c8680287150b0730026ac98338f9e))
+  *  update dependency typescript to v4.9.5 ([67d03ab5](https://github.com/maksimr/uikit/commit/67d03ab50f88fda87b833e0e300c5983ab9c2435))
+  *  update dependency eslint-plugin-react to v7.32.2 ([2bac16cd](https://github.com/maksimr/uikit/commit/2bac16cd252b0549e49cfaf8fe76fdb6b1ed33ba))
+  *  update dependency eslint to v8.33.0 ([6d8fa284](https://github.com/maksimr/uikit/commit/6d8fa284d707401d1ee6e4d86a5b1fe028ac066c))
+  *  update dependency immer to v9.0.19 ([15fdb0df](https://github.com/maksimr/uikit/commit/15fdb0df263f918a67f591d30aa888a1393b67dd))
+  *  update dependency playwright to v1.30.0 ([46bec3ec](https://github.com/maksimr/uikit/commit/46bec3ec9c9b858743d5d0cb0b6c8a8be54e04b0))
+  *  update dependency @types/react to v18.0.27 ([415000f1](https://github.com/maksimr/uikit/commit/415000f10c3d40970982ea4c1821fedc63b94f65))
+  *  update dependency eslint-plugin-react to v7.32.1 ([38e06ca2](https://github.com/maksimr/uikit/commit/38e06ca2849e9e29ed05887e9f034e800a37ac60))
+  *  update dependency immer to v9.0.18 ([af0bc75b](https://github.com/maksimr/uikit/commit/af0bc75bbb670db84dcf8716d9e4a20ce240842e))
+  *  update dependency eslint to v8.32.0 ([5a48c8bc](https://github.com/maksimr/uikit/commit/5a48c8bc64a7a7454f85ac39be9f460a74310f84))
+  *  update dependency eslint-plugin-react to v7.32.0 ([ee353ea2](https://github.com/maksimr/uikit/commit/ee353ea2995eafd91aaa9e04fec24cc8657c5487))
+  *  update dependency playwright to v1.29.2 ([3d5c7fee](https://github.com/maksimr/uikit/commit/3d5c7feee9bd3160e7bc71b107c37cdf2fca918b))
+  *  update node.js to v18.13.0 ([9c2c499b](https://github.com/maksimr/uikit/commit/9c2c499b62210deffa6153df8d379bb7bd39afca))
+  *  update dependency babel-loader to v9.1.2 ([04aa0b0b](https://github.com/maksimr/uikit/commit/04aa0b0ba93044a91e1bdf266ca27dda0adf4c7a))
+  *  update dependency @babel/core to v7.20.12 ([23724620](https://github.com/maksimr/uikit/commit/23724620258630446b51fd13761b20b1473678b3))
+  *  update dependency immer to v9.0.17 ([ccb86f33](https://github.com/maksimr/uikit/commit/ccb86f337b54e31e0da616563c3bf7bfdca60b22))
+  *  update dependency eslint to v8.31.0 ([b9156187](https://github.com/maksimr/uikit/commit/b91561871efaa1a91bce02211603d70dc51c192e))
+  *  update dependency @types/react-dom to v18.0.10 ([b25128e5](https://github.com/maksimr/uikit/commit/b25128e5e376cf71b6b79ba0405d79611bae382e))
+  *  update dependency @babel/core to v7.20.7 ([891a4199](https://github.com/maksimr/uikit/commit/891a41999407b32d184bafcd2955c1dd4c1c64cd))
+  *  update dependency playwright to v1.29.1 ([7f257607](https://github.com/maksimr/uikit/commit/7f25760735c75f3b3f85384d8f19ce9b39a81a9a))
+  *  update dependency playwright to v1.29.0 ([e46bbba5](https://github.com/maksimr/uikit/commit/e46bbba540fde49286b0aa03fd553c3f917760ce))
+  *  update dependency eslint to v8.30.0 ([e51170af](https://github.com/maksimr/uikit/commit/e51170afe2f65d8b8d8070378ff95cad88a0c921))
+  *  update dependency karma-spec-reporter to v0.0.36 ([dac999c9](https://github.com/maksimr/uikit/commit/dac999c94f4490dc01f04ca818ab33147da7a2e7))
+  *  update dependency jscpd to v3.5.3 ([b769b30f](https://github.com/maksimr/uikit/commit/b769b30f9a0745b590b5bbff3fb14a52717c60f8))
+  *  update dependency css-loader to v6.7.3 ([87ab787c](https://github.com/maksimr/uikit/commit/87ab787cb06d9084a677213f0e0ffee7edd9677e))
+  *  update dependency karma-spec-reporter to v0.0.35 ([c8645965](https://github.com/maksimr/uikit/commit/c86459652b2cc1485206237622ff51e39b6b01a5))
+  *  update dependency typescript to v4.9.4 ([e1f4edbb](https://github.com/maksimr/uikit/commit/e1f4edbbc3dc1f105a67b5c0839fa4542ce0528e))
+  *  update dependency webpack-cli to v5.0.1 ([321bac37](https://github.com/maksimr/uikit/commit/321bac374a813b209e118a0591315a68df302f2e))
+  *  update dependency @types/jasmine to v4.3.1 ([50e6ab30](https://github.com/maksimr/uikit/commit/50e6ab3004f4c6c480088e0907f016fc9a8991dd))
+  *  update dependency eslint to v8.29.0 ([13507b20](https://github.com/maksimr/uikit/commit/13507b2051063c15f872678b9791c60c2df9e4e0))
+  *  update dependency jest-image-snapshot to v6.1.0 ([35e54bb0](https://github.com/maksimr/uikit/commit/35e54bb0d044d8c965b8f67c353a6ac538a4b086))
+  *  update dependency @types/react to v18.0.26 ([9caa49da](https://github.com/maksimr/uikit/commit/9caa49daf04c81f26f4d99c9e3170fbe30f71a4f))
+  *  update dependency @babel/core to v7.20.5 ([1f32526a](https://github.com/maksimr/uikit/commit/1f32526a8b4c3d2ece2b519d5481d1b2aa2bf70b))
+*  use workspace typescript ([5bc0bc6f](https://github.com/maksimr/uikit/commit/5bc0bc6f3a0edf8ae14f001173af710ea4115c19))
+*  update vscode settings ([8b3b0582](https://github.com/maksimr/uikit/commit/8b3b0582090e2010e0e85d8dc8febb6271f7599c))
+*  fix typo ([94cb918d](https://github.com/maksimr/uikit/commit/94cb918da7d57d67e0cec291fe23d15034e17743))
+
+##### New Features
+
+*  multiply decimal ([139be208](https://github.com/maksimr/uikit/commit/139be20863d2dfb28c86bf2c4aab5c65eb1cb408))
+*  add/subtract decimal ([566e3465](https://github.com/maksimr/uikit/commit/566e3465771af5340b9b621701bdb9fd5a742e86))
+
+##### Refactors
+
+*  cleanup code ([fcc64d63](https://github.com/maksimr/uikit/commit/fcc64d63becde8e5b2dae6cbc90224349fe26e48))
+*  remove duplications ([5947856f](https://github.com/maksimr/uikit/commit/5947856ffb31ea4ced7b3004bfe391a85d0060d1))
+*  move karma utils to separate npm package ([5198063e](https://github.com/maksimr/uikit/commit/5198063e47c259a352d41c3c20debf9a567d3d8a))
+
 #### 0.0.69 (2022-11-26)
 
 ##### Chores
