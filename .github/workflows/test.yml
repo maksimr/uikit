@@ -18,6 +18,7 @@ jobs:
           npm ci
       - name: Run static tests
         run: |
+          npm run test:codestyle
           npm run test:type
           npm run test:cpd
       - name: Run unit tests

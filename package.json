@@ -24,7 +24,8 @@
     "test:e2e:watch": "npm run test:e2e -- --no-single-run --reporters spec",
     "test:type": "tsc",
     "test:cpd": "jscpd --pattern 'lib/**/*.js' --ignore '**/*.test.js,**/*.e2e.js' --exitCode 1",
-    "lint": "eslint lib/ src/ test/"
+    "test:codestyle": "eslint lib/ src/ test/",
+    "test:all": "npm run test:codestyle && npm run test:type && npm run test:cpd && npm run test && npm run test:e2e"
   },
   "peerDependencies": {
     "react": ">=17",
@@ -36,7 +37,7 @@
   },
   "devDependencies": {
     "react": "18.2.0",
-    "immer": "9.0.21",
+    "immer": "10.0.1",
     "react-dom": "18.2.0",
     "typescript": "5.0.4",
     "@types/jasmine": "4.3.1",
