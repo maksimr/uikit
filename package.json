@@ -68,7 +68,7 @@
     "karma-spec-reporter": "0.0.36",
     "@maksimr/karma-test-utils": "0.0.2",
     "jest-image-snapshot": "6.2.0",
-    "jscpd": "3.5.9",
+    "jscpd": "3.5.10",
     "generate-changelog": "1.8.0"
   },
   "eslintConfig": {
