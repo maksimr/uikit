@@ -42,7 +42,7 @@
     "typescript": "5.2.2",
     "@types/jasmine": "5.1.2",
     "@types/webpack-env": "1.18.4",
-    "@types/webpack-sources": "3.2.2",
+    "@types/webpack-sources": "3.2.3",
     "@types/react-dom": "18.2.14",
     "@types/react": "18.2.36",
     "@babel/core": "7.23.2",
