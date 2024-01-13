@@ -1,3 +1,32 @@
+### 0.3.0 (2024-01-13)
+
+##### Chores
+
+* **deps:**
+  *  update dependency node to v20.11.0 ([2e5c8918](https://github.com/maksimr/uikit/commit/2e5c89184c2dc743a766151cef675eb90e0c8e93))
+  *  update dependency css-loader to v6.9.0 ([eab064cc](https://github.com/maksimr/uikit/commit/eab064ccad1b6513285e8c890403149c003013a6))
+  *  update dependency @babel/preset-env to v7.23.8 ([9bd517c3](https://github.com/maksimr/uikit/commit/9bd517c377b77f628c9f52b459600c38d570a070))
+  *  update dependency @types/react to v18.2.47 ([a6925909](https://github.com/maksimr/uikit/commit/a692590943d69b43fc502d0da1430fa3f4a7361b))
+  *  update babel monorepo to v7.23.7 ([7e885394](https://github.com/maksimr/uikit/commit/7e885394ed82b52a91ca5e15807dfc696705296e))
+  *  update dependency @types/react to v18.2.46 ([2d3bfa52](https://github.com/maksimr/uikit/commit/2d3bfa5222318b35085b06fa38cc3660653996d8))
+  *  update dependency html-webpack-plugin to v5.6.0 ([5cbc275f](https://github.com/maksimr/uikit/commit/5cbc275fccadc72a1ed44df6787e33eab1879989))
+  *  update dependency eslint to v8.56.0 ([f9db7196](https://github.com/maksimr/uikit/commit/f9db7196d57be3d170af62059f62ae7f85cb83b5))
+  *  update dependency @types/react-dom to v18.2.18 ([f391a7b4](https://github.com/maksimr/uikit/commit/f391a7b4882f2b7add67bf9d8fec884fa1c29543))
+  *  update actions/upload-artifact action to v4 ([edb77091](https://github.com/maksimr/uikit/commit/edb7709188b25d9f896ed2e953579a93ae8c6f18))
+  *  update dependency @types/react to v18.2.45 ([cc2d2a8e](https://github.com/maksimr/uikit/commit/cc2d2a8e97ca564a3be7f9d2eb8241c2de0e67ae))
+  *  update dependency jest-image-snapshot to v6.4.0 ([ec0bc76a](https://github.com/maksimr/uikit/commit/ec0bc76a988204a915027574aeb09931879b265a))
+  *  update babel monorepo to v7.23.6 ([686b8036](https://github.com/maksimr/uikit/commit/686b803679665c66d28675755d0ad3433439d017))
+  *  update dependency @types/react to v18.2.43 ([44ffc935](https://github.com/maksimr/uikit/commit/44ffc93521ba64dad35ac65deb4a1f89419f097d))
+  *  update dependency typescript to v5.3.3 ([341c42bc](https://github.com/maksimr/uikit/commit/341c42bcec4275c61384a5e97ee8a940ca680511))
+  *  update dependency html-webpack-plugin to v5.5.4 ([f0a07185](https://github.com/maksimr/uikit/commit/f0a071857c195f01ea1f44d42feeec34ff112977))
+  *  update dependency @types/react to v18.2.42 ([4af52a55](https://github.com/maksimr/uikit/commit/4af52a55b20ff96bfeacfa12f2025b4077926a34))
+*  fix typos ([4a1032c7](https://github.com/maksimr/uikit/commit/4a1032c700a1003093819efa5658dfdfd27d89f6))
+*  move return from final block ([f757fdd3](https://github.com/maksimr/uikit/commit/f757fdd38994616c06dd8199ecdaaf86c84500b3))
+
+##### New Features
+
+*  add parse accept language util ([188356ca](https://github.com/maksimr/uikit/commit/188356ca899517f5efb3997a71647f9f639448a6))
+
 ### 0.2.0 (2023-12-03)
 
 ##### Chores
