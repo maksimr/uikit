@@ -1,3 +1,9 @@
+### 0.5.0 (2024-01-13)
+
+##### New Features
+
+*  add function to implement chain of responsibility(middleware) pattern ([8f15fcef](https://github.com/maksimr/uikit/commit/8f15fcefee012e615cb89b5497e0415557b81390))
+
 ### 0.4.0 (2024-01-13)
 
 ##### Bug Fixes
