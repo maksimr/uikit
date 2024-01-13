@@ -1,3 +1,9 @@
+### 0.4.0 (2024-01-13)
+
+##### Bug Fixes
+
+*  add type module for result package.json ([53a7b590](https://github.com/maksimr/uikit/commit/53a7b5909774654254329ce96036b82e50b1e58a))
+
 ### 0.3.0 (2024-01-13)
 
 ##### Chores
