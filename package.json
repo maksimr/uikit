@@ -44,7 +44,7 @@
     "@types/jasmine": "5.1.4",
     "@types/webpack-env": "1.18.4",
     "@types/webpack-sources": "3.2.3",
-    "@types/react-dom": "18.2.18",
+    "@types/react-dom": "18.2.19",
     "@types/react": "18.2.55",
     "@babel/core": "7.23.9",
     "@babel/preset-env": "7.23.9",
