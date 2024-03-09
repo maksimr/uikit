@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "react": "18.2.0",
-    "immer": "10.0.3",
+    "immer": "10.0.4",
     "react-dom": "18.2.0",
     "typescript": "5.4.2",
     "@types/jasmine": "5.1.4",
