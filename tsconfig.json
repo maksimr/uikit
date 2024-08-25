@@ -22,7 +22,6 @@
     "scripts/**/*",
     "test",
     "src",
-    "node",
     "lib"
   ],
   "exclude": [
