@@ -1,14 +1,16 @@
-const { getHttpClientOptions } = require('./net');
+import { request as httpRequest } from 'http';
+import { request as httpsRequest } from 'https';
+import { getHttpClientOptions } from './get-http-client-options.js';
 
 /**
  * @param {string} fileUrl 
  * @returns {Promise<import('http').IncomingMessage>}
  */
-function downloadFile(fileUrl) {
+export function downloadFile(fileUrl) {
   const options = getHttpClientOptions(fileUrl, undefined, false);
   const httpClient = fileUrl.startsWith('http:') ?
-    require('http').request :
-    require('https').request;
+    httpRequest :
+    httpsRequest;
 
   return new Promise((resolve, reject) => {
     const request = httpClient(options, response => {
@@ -40,5 +42,3 @@ function downloadFile(fileUrl) {
     request.end();
   });
 }
-
-module.exports = downloadFile;
