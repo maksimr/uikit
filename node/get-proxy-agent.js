@@ -1,4 +1,6 @@
-const require = import.meta.require;
+// @ts-check
+
+const require = (/**@type {any}*/(import.meta)).require;
 
 /**
  * @param {string} requestUrl 

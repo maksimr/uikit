@@ -1,3 +1,5 @@
+// @ts-check
+
 import { parse } from 'url';
 import { getProxyAgent } from './get-proxy-agent.js';
 

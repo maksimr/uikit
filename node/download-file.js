@@ -1,3 +1,5 @@
+// @ts-check
+
 import { request as httpRequest } from 'http';
 import { request as httpsRequest } from 'https';
 import { getHttpClientOptions } from './get-http-client-options.js';
