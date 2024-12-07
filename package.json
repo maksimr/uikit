@@ -44,7 +44,7 @@
     "@babel/preset-env": "7.26.0",
     "@babel/preset-react": "7.26.3",
     "@maksimr/karma-test-utils": "0.0.2",
-    "@testing-library/react": "16.0.1",
+    "@testing-library/react": "16.1.0",
     "@types/jasmine": "5.1.5",
     "@types/react": "18.3.14",
     "@types/react-dom": "18.3.2",
