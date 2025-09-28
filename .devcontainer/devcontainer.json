@@ -1,0 +1,8 @@
+{
+  "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:22",
+  "features": {
+    "ghcr.io/schlich/devcontainer-features/playwright:0": {
+      "browsers": "chromium"
+    }
+  }
+}
