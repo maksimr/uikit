@@ -61,7 +61,7 @@
     "https-proxy-agent": "^7.0.5",
     "immer": "11.1.4",
     "jest-image-snapshot": "6.5.1",
-    "jscpd": "3.5.10",
+    "jscpd": "4.0.8",
     "karma": "6.4.4",
     "karma-chrome-launcher": "3.2.0",
     "karma-image-snapshot": "0.1.0",
